@@ -1,4 +1,4 @@
-# Object Oriented Programming 3 Group Project
+# Object Oriented Programming 3 Group Project (Group 1)
 
 Course project for OOP3.
 
