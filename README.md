@@ -7,9 +7,11 @@ Course project for OOP3.
 Durak is a Russian card game where the objective is to be the first to empty one's own hand.
 
 ### Setup
+- All cards with values of 2 through 5 (inclusive) are removed from the standard deck, leaving only 36 cards
 - After shuffling the deck, players are dealt 6 cards each. The trump suit is decided at the start of the game by revealing the bottom card from the deck.
 - The turn-up is placed face up, with the remainder of the deck face down on top of it at a right angle.
 - The first attacker is whoever has the lowest-value trump suit card in their hand.
+- For our purposes, if neither player has a trump card in their starting hand, the human player will go before the computer player
 
 ### Rounds
 - The attacker plays a card, and the defender must defend with a card of either:
