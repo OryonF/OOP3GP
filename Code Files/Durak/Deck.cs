@@ -45,15 +45,6 @@ namespace Durak
         }
 
         /*
-         * Function to handle adding new cards to deck
-         * Take card object as parameter, add it to list
-         */
-        public void AddCard(Card card)
-        {
-            cards.Add(card);
-        }
-
-        /*
          * Function for handling card dealing
          * Take int as parameter for number of cards to deal
          */
