@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Durak")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46d9869d9dc1246cda6b35b50b31fd0b226b39f8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f970acebf99fd2b68bf9241c59217cffb13ead2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Durak")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Durak")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

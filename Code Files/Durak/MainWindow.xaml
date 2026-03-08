@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Use Selected Card" HorizontalAlignment="Left" Margin="29,330,0,0" VerticalAlignment="Top"/>
+        <Label Content="Trump Suit: " HorizontalAlignment="Left" Margin="29,45,0,0" VerticalAlignment="Top"/>
+        <Label Content="Cards Remaining: " HorizontalAlignment="Left" Margin="29,76,0,0" VerticalAlignment="Top"/>
+        <Label Content="text here" HorizontalAlignment="Left" Margin="107,45,0,0" VerticalAlignment="Top"/>
+        <Label Content="text here" HorizontalAlignment="Left" Margin="139,76,0,0" VerticalAlignment="Top"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="29,167,605,109"/>
+        <Label Content="Player Hand:" HorizontalAlignment="Left" Margin="29,136,0,0" VerticalAlignment="Top"/>
+        <Button Content="Pass" HorizontalAlignment="Left" Margin="168,330,0,0" VerticalAlignment="Top"/>
+        <Label Content="Player is currently: " HorizontalAlignment="Left" Margin="29,107,0,0" VerticalAlignment="Top"/>
+        <Label Content="text here" HorizontalAlignment="Left" Margin="138,107,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
