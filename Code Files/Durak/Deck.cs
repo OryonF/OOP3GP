@@ -14,8 +14,11 @@ namespace Durak
             cards = new List<Card>();
         }
 
-        // Deck method to be overridden by subclasses
-        public virtual void InitializeDeck() { }
+        // Deck method to initialize deck
+        public virtual void InitializeDeck() 
+        {
+            //todo
+        }
 
         // Function to handle shuffling cards in deck
         public void Shuffle()
@@ -30,12 +33,6 @@ namespace Durak
                 cards[i] = cards[j];
                 cards[j] = temp;
             }
-        }
-
-        // Function for showing all cards (rank and suite) in the deck
-        public List<Card> GetCards()
-        {
-            return cards;
         }
 
         // Function for showing the number of cards still in the deck

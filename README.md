@@ -2,6 +2,8 @@
 
 Course project for OOP3.
 
+Playing card assets via: https://github.com/hanhaechi/playing-cards
+
 ## Chosen game: 2 player Durak
 
 Durak is a Russian card game where the objective is to be the first to empty one's own hand.
