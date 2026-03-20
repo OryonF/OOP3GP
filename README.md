@@ -2,7 +2,9 @@
 
 Course project for OOP3.
 
-Playing card assets via: https://github.com/hanhaechi/playing-cards
+Playing card assets via: https://github.com/hanhaechi/playing-cards (used for Classic and Greyscale themes)
+Silly themed cards will be created by our own team members
+Libraries used: Json.JsonSerializer
 
 ## Chosen game: 2 player Durak
 
