@@ -18,4 +18,24 @@ public class HumanPlayer
         Hand = new List<Card>();
 
     }
+    
+    // 
+    public void AddCard(Card card)
+    {
+        Hand.Add(card);
+    }
+
+    // 
+    public void RemoveCard(Card card)
+    {
+        Hand.Remove(card);
+    }
+
+    public void SortHand()
+    {
+        Hand = Hand
+            .OrderBy(c => c.Suit)
+            .ThenBy(c => c.Rank)
+            .ToList();
+    }
 }
