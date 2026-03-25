@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "PvP0s0iLMSc=",
+  "dgSpecHash": "VMFCShZw/a8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mtthw\\Documents\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\smosh\\OneDrive\\Documents\\GitHub\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\smosh\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.25\\microsoft.netcore.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\smosh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.25\\microsoft.windowsdesktop.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\smosh\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.25\\microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\smosh\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.25\\microsoft.netcore.app.host.win-x64.8.0.25.nupkg.sha512"
+  ],
   "logs": []
 }
