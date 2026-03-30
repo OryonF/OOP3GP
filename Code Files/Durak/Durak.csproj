@@ -8,4 +8,20 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="empty.png" />
+    <None Remove="i_spades_A.png" />
+    <None Remove="n_spades_A.png" />
+    <None Remove="spades_A.png" />
+    <None Remove="s_spades_A.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="empty.png" />
+    <Resource Include="i_spades_A.png" />
+    <Resource Include="n_spades_A.png" />
+    <Resource Include="spades_A.png" />
+    <Resource Include="s_spades_A.png" />
+  </ItemGroup>
+
 </Project>

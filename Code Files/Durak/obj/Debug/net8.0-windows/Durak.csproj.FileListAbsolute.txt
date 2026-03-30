@@ -19,3 +19,7 @@ C:\Users\mtthw\Documents\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\refint
 C:\Users\mtthw\Documents\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\Durak.pdb
 C:\Users\mtthw\Documents\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\Durak.genruntimeconfig.cache
 C:\Users\mtthw\Documents\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\ref\Durak.dll
+C:\Users\mtthw\Documents\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\GameRules.g.cs
+C:\Users\mtthw\Documents\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\StatsSettings.g.cs
+C:\Users\mtthw\Documents\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\GameRules.baml
+C:\Users\mtthw\Documents\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\StatsSettings.baml
