@@ -20,73 +20,73 @@
         <Label x:Name="Main_PlayerHandValueLabel" Content="number here" HorizontalAlignment="Left" Margin="97,138,0,0" VerticalAlignment="Top"/>
 
         <!-- ListBox -->
-        <ListBox x:Name="Main_PlayerHandListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="17,169,617,107"/>
+        <ListBox x:Name="Main_PlayerHandListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="17,169,617,107" SelectionChanged="Main_PlayerHandListBox_SelectionChanged"/>
 
         <!-- Buttons -->
-        <Button x:Name="Main_UseCardButton" Content="Use Selected Card" HorizontalAlignment="Left" Margin="17,332,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Main_PassButton" Content="Pass" HorizontalAlignment="Left" Margin="156,332,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Main_UseCardButton" Content="Use Selected Card" HorizontalAlignment="Left" Margin="17,332,0,0" VerticalAlignment="Top" Click="Main_UseCardButton_Click"/>
+        <Button x:Name="Main_PassButton" Content="Pass" HorizontalAlignment="Left" Margin="156,332,0,0" VerticalAlignment="Top" Click="Main_PassButton_Click"/>
         <Button x:Name="Main_RulesButton" Content="Game Rules" HorizontalAlignment="Left" Margin="16,373,0,0" VerticalAlignment="Top" Click="Main_RulesButton_Click"/>
         <Button x:Name="Main_StatsSettingsButton" Content="Stats &amp; Settings" HorizontalAlignment="Left" Margin="95,373,0,0" VerticalAlignment="Top" Click="Main_StatsSettingsButton_Click"/>
 
         <!-- CPU Played Cards -->
-        <Image x:Name="Main_CPUPlayedCard1" HorizontalAlignment="Left" Height="125" Margin="221,76,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_CPUPlayedCard1" HorizontalAlignment="Left" Height="125" Margin="221,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_CPUPlayedCard2" HorizontalAlignment="Left" Height="125" Margin="315,76,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_CPUPlayedCard2" HorizontalAlignment="Left" Height="125" Margin="315,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_CPUPlayedCard3" HorizontalAlignment="Left" Height="125" Margin="409,75,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_CPUPlayedCard3" HorizontalAlignment="Left" Height="125" Margin="409,75,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_CPUPlayedCard4" HorizontalAlignment="Left" Height="125" Margin="503,76,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_CPUPlayedCard4" HorizontalAlignment="Left" Height="125" Margin="503,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_CPUPlayedCard5" HorizontalAlignment="Left" Height="125" Margin="597,76,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_CPUPlayedCard5" HorizontalAlignment="Left" Height="125" Margin="597,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_CPUPlayedCard6" HorizontalAlignment="Left" Height="125" Margin="691,76,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_CPUPlayedCard6" HorizontalAlignment="Left" Height="125" Margin="691,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
 
         <!-- Player Played Cards -->
-        <Image x:Name="Main_PlayerPlayedCard1" HorizontalAlignment="Left" Height="125" Margin="221,227,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_PlayerPlayedCard1" HorizontalAlignment="Left" Height="125" Margin="221,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_PlayerPlayedCard2" HorizontalAlignment="Left" Height="125" Margin="315,227,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_PlayerPlayedCard2" HorizontalAlignment="Left" Height="125" Margin="315,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_PlayerPlayedCard3" HorizontalAlignment="Left" Height="125" Margin="409,226,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_PlayerPlayedCard3" HorizontalAlignment="Left" Height="125" Margin="409,226,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_PlayerPlayedCard4" HorizontalAlignment="Left" Height="125" Margin="503,227,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_PlayerPlayedCard4" HorizontalAlignment="Left" Height="125" Margin="503,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_PlayerPlayedCard5" HorizontalAlignment="Left" Height="125" Margin="597,227,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_PlayerPlayedCard5" HorizontalAlignment="Left" Height="125" Margin="597,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="Main_PlayerPlayedCard6" HorizontalAlignment="Left" Height="125" Margin="691,227,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/empty.png">
+        <Image x:Name="Main_PlayerPlayedCard6" HorizontalAlignment="Left" Height="125" Margin="691,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
