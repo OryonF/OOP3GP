@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mtthw\\Desktop\\New folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {}
+    "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mtthw\\Desktop\\New folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {
+    "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtthw\\Desktop\\New folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+        "projectUniqueName": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
         "projectName": "Durak",
-        "projectPath": "C:\\Users\\mtthw\\Desktop\\New folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+        "projectPath": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
         "packagesPath": "C:\\Users\\mtthw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtthw\\Desktop\\New folder\\OOP3GP\\Code Files\\Durak\\obj\\",
+        "outputPath": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\mtthw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

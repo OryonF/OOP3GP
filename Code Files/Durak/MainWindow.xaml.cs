@@ -15,6 +15,11 @@ namespace Durak
             game = new Game();
             game.StartGame();
             UpdateUI();
+            if (!game.PlayerMove)
+            {
+                game.CpuTurn();
+                UpdateUI();
+            }
         }
 
         // Refresh all UI elements
@@ -159,16 +164,10 @@ namespace Durak
                 MessageBox.Show(result);
                 return;
             }
-
-            // End player's turn
-            game.SwitchMove();
-
-            // If it's CPU's turn, make its move
-            if (!game.PlayerMove)
+            while (!game.PlayerMove)
             {
                 game.CpuTurn();
             }
-
             // Refresh all UI (buttons will enable/disable based on PlayerMove)
             UpdateUI();
         }
@@ -177,10 +176,6 @@ namespace Durak
         private void Main_PassButton_Click(object sender, RoutedEventArgs e)
         {
             game.PlayerPasses();
-            if (!game.PlayerMove)
-            {
-                game.CpuTurn(); // make the CPU move automatically
-            }
             UpdateUI();
         }
 
@@ -212,13 +207,13 @@ namespace Durak
 
             if (game.PlayerMove)
             {
-                if (game.PlayerAttack && game.RoundAttacksCount > 1)
+                if (game.PlayerAttack && game.CurrentRoundAttacks.Count >= 1)
                 {
                     Main_UseCardButton.IsEnabled = Card.CanAdditionalAttack(selectedCard, game.CurrentRoundAttacks);
                 }
                 else if (!game.PlayerAttack)
                 {
-                    Main_UseCardButton.IsEnabled = Card.CanDefend(selectedCard, game.LastPlayedCard, game.TrumpSuit);
+                    Main_UseCardButton.IsEnabled = Card.CanDefend(game.LastPlayedCard, selectedCard, game.TrumpSuit);
                 }
                 else
                 {

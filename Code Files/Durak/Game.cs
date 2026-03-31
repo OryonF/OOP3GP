@@ -13,8 +13,6 @@ public class Game
     public bool PlayerAttack { get; private set; }  // true = human attacking
     public bool PlayerMove { get; private set; }    // whose move it is
 
-    public int RoundAttacksCount { get; private set; } = 1;
-
     public List<Card> CurrentRoundAttacks { get; private set; } = new List<Card>();
     public List<Card> CurrentRoundDefends { get; private set; } = new List<Card>();
     public Card LastPlayedCard { get; private set; }
@@ -31,7 +29,6 @@ public class Game
         deck.Initialize();
         deck.Shuffle(deck.Cards);
 
-        // Deal 6 cards each
         for (int i = 0; i < 6; i++)
         {
             human.AddCard(deck.Draw());
@@ -40,19 +37,11 @@ public class Game
 
         TrumpSuit = deck.GetBottomCard().Suit;
 
-        // Decide first attacker
-        PlayerAttack = DetermineFirstAttacker();
+        PlayerAttack = false; // currently set to cpu always attacking first for testing; replace with DetermineFirstAttacker(); in final
         PlayerMove = PlayerAttack;
-        if (!PlayerAttack)
-        {
-            CpuTurn();
-        }
     }
 
-    /// <summary>
-    /// Play a card and remove it from the appropriate hand.
-    /// </summary>
-    public string Move(Card card, bool isPlayer = true)
+    public string Move(Card card, bool isPlayer = true, bool allowCpuResponse = true)
     {
         if (card == null) return "";
 
@@ -63,7 +52,7 @@ public class Game
         if (isAttack)
         {
             if (CurrentRoundAttacks.Count >= 6)
-                return ""; // block extra attacks
+                return "";
 
             CurrentRoundAttacks.Add(card);
         }
@@ -72,42 +61,42 @@ public class Game
             CurrentRoundDefends.Add(card);
         }
 
-        // Remove the card from the correct hand
         if (isPlayer)
-            human.RemoveCard(card);
-        else
-            cpu.RemoveCard(card);
-
-        // ✅ ADD THIS BLOCK RIGHT HERE
-        if (!isAttack) // defender just played
         {
-            if (CurrentRoundAttacks.Count == 6 &&
-                CurrentRoundDefends.Count == 6)
-            {
-                // discard all cards
-                foreach (var c in CurrentRoundAttacks)
-                    deck.DiscardPile.Add(c);
+            human.RemoveCard(card);
+        }
+        else
+        { cpu.RemoveCard(card); }
+        SwitchMove();
 
-                foreach (var c in CurrentRoundDefends)
-                    deck.DiscardPile.Add(c);
 
-                SwitchAttack();   // defender becomes attacker
-                RefillHands();
-                ResetRound();
-            }
+        // Max 6 resolved → end round
+        if (!isAttack &&
+            CurrentRoundAttacks.Count == 6 &&
+            CurrentRoundDefends.Count == 6)
+        {
+            foreach (var c in CurrentRoundAttacks)
+                deck.DiscardPile.Add(c);
+
+            foreach (var c in CurrentRoundDefends)
+                deck.DiscardPile.Add(c);
+
+            SwitchAttack();
+            ResetRound();
+            RefillHands();
+
+            PlayerMove = PlayerAttack;
+
+            if (!PlayerMove && allowCpuResponse)
+                CpuTurn();
         }
 
         return CheckEndState();
     }
 
-    /// <summary>
-    /// Switch the attack role (attacker <-> defender)
-    /// </summary>
     public void SwitchAttack()
     {
         PlayerAttack = !PlayerAttack;
-        ResetRound();
-   
     }
 
     public void PlayerPasses()
@@ -123,7 +112,7 @@ public class Game
         }
         else
         {
-            // successful defense, discard
+            // successful defense
             foreach (var card in CurrentRoundAttacks)
                 deck.DiscardPile.Add(card);
 
@@ -133,8 +122,13 @@ public class Game
             SwitchAttack();
         }
 
-        RefillHands();
         ResetRound();
+        RefillHands();
+
+        PlayerMove = PlayerAttack;
+
+        if (!PlayerMove)
+            CpuTurn();
     }
 
     private void DrawUpToSix(Player player)
@@ -147,97 +141,89 @@ public class Game
 
     public void RefillHands()
     {
-        if (PlayerAttack) // human is attacker
+        if (PlayerAttack)
         {
             DrawUpToSix(human);
             DrawUpToSix(cpu);
         }
-        else // CPU is attacker
+        else
         {
             DrawUpToSix(cpu);
             DrawUpToSix(human);
         }
     }
 
-    /// <summary>
-    /// Switch whose move it is
-    /// </summary>
     public void SwitchMove()
     {
         PlayerMove = !PlayerMove;
     }
 
-    /// <summary>
-    /// Check if the game is over
-    /// </summary>
     public string CheckEndState()
     {
         if (human.hand.Count == 0) return "You won!";
         if (cpu.hand.Count == 0) return "CPU won!";
-        return ""; // ongoing
+        return "";
     }
 
-    /// <summary>
-    /// CPU performs its turn (attack or defend)
-    /// </summary>
     public void CpuTurn()
     {
-        bool isCpuAttack = !PlayerAttack; // if player is attacking, CPU defends
+        bool isCpuAttack = !PlayerAttack;
 
         Card cpuCard = cpu.MakeMove(isCpuAttack, CurrentRoundAttacks, LastPlayedCard, TrumpSuit);
 
         if (cpuCard != null)
         {
-            var result = Move(cpuCard, isPlayer: false);
+            var result = Move(cpuCard, isPlayer: false, allowCpuResponse: false);
 
             if (result != "")
             {
                 MessageBox.Show(result);
-                return;
             }
+
+            return; // 🔥 critical
+        }
+
+        // CPU cannot play
+        if (!isCpuAttack)
+        {
+            // CPU fails defense → picks up
+            CpuPickupCards();
+
+            ResetRound();
+            RefillHands();
+
+            PlayerMove = PlayerAttack;
+            return;
         }
         else
         {
-            if (!isCpuAttack)
-            {
-                // CPU cannot defend, must pick up cards
-                CpuPickupCards();
-                ResetRound();
-                RefillHands();
-            }
-            // If CPU is attacking and has no valid card, it just passes
-            else
-            {
-                foreach (var card in CurrentRoundAttacks)
-                {
-                    deck.DiscardPile.Add(card);
-                }
-                foreach (var card in CurrentRoundDefends)
-                {
-                    deck.DiscardPile.Add(card);
-                }
-                SwitchAttack();
-                RefillHands();
-            }
-        }
+            // CPU stops attacking
+            foreach (var card in CurrentRoundAttacks)
+                deck.DiscardPile.Add(card);
 
-        SwitchMove();
+            foreach (var card in CurrentRoundDefends)
+                deck.DiscardPile.Add(card);
+
+            SwitchAttack();
+            ResetRound();
+            RefillHands();
+
+            PlayerMove = PlayerAttack;
+
+            if (!PlayerMove)
+                CpuTurn();
+
+            return;
+        }
     }
 
-    /// <summary>
-    /// CPU picks up all cards from the current round
-    /// </summary>
     private void CpuPickupCards()
     {
         foreach (var card in CurrentRoundAttacks)
-        {
             cpu.AddCard(card);
-        }
-        foreach (var card in CurrentRoundDefends)
-        {
-            cpu.AddCard(card);
-        }
 
+        foreach (var card in CurrentRoundDefends)
+            cpu.AddCard(card);
     }
 
     public void ResetRound()
@@ -252,34 +238,28 @@ public class Game
         Card playerTrump = null;
         Card cpuTrump = null;
 
-        // Find lowest trump in player's hand
         foreach (var card in human.hand)
         {
             if (card.Suit == TrumpSuit)
             {
                 if (playerTrump == null || card.Rank < playerTrump.Rank)
-                {
                     playerTrump = card;
-                }
             }
         }
 
-        // Find lowest trump in CPU's hand
         foreach (var card in cpu.hand)
         {
             if (card.Suit == TrumpSuit)
             {
                 if (cpuTrump == null || card.Rank < cpuTrump.Rank)
-                {
                     cpuTrump = card;
-                }
             }
         }
 
-        // Decide first attacker
-        if (playerTrump == null && cpuTrump == null) return true;  // default: player starts
+        if (playerTrump == null && cpuTrump == null) return true;
         if (cpuTrump == null) return true;
         if (playerTrump == null) return false;
+
         return playerTrump.Rank < cpuTrump.Rank;
     }
 }
