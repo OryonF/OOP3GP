@@ -69,7 +69,7 @@ namespace Durak {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Durak;V1.0.0.0;component/gamerules.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Durak;component/gamerules.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\GameRules.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

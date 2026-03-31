@@ -16,17 +16,17 @@
         <Label x:Name="StatSet_CpuWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="83,98,0,0" VerticalAlignment="Top"/>
 
         <!-- Card Theme Images -->
-        <Image x:Name="StatSet_NormalThemeImage" HorizontalAlignment="Left" Height="125" Margin="174,185,0,0" VerticalAlignment="Top" Width="90" Source="/n_spades_A.png">
+        <Image x:Name="StatSet_NormalThemeImage" HorizontalAlignment="Left" Height="125" Margin="174,185,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/themes/normal/n_spades_A.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="StatSet_InvertedThemeImage" HorizontalAlignment="Left" Height="125" Margin="536,185,0,0" VerticalAlignment="Top" Width="90" Source="/s_spades_A.png">
+        <Image x:Name="StatSet_InvertedThemeImage" HorizontalAlignment="Left" Height="125" Margin="536,185,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/themes/silly/s_spades_A.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Image x:Name="StatSet_SillyThemeImage" HorizontalAlignment="Center" Height="125" Margin="0,185,0,0" VerticalAlignment="Top" Width="90" Source="/i_spades_A.png">
+        <Image x:Name="StatSet_SillyThemeImage" HorizontalAlignment="Center" Height="125" Margin="0,185,0,0" VerticalAlignment="Top" Width="90" Source="/Playing cards/themes/inverted_colour/i_spades_A.png">
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
