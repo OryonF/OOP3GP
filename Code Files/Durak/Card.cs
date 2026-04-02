@@ -4,9 +4,8 @@ public class Card
 {
     public string Suit { get; set; }
     public int Rank { get; set; }
-    public bool Playable { get; set; }
 
-    public Card(int rank, string suit, bool playable = true)
+    public Card(int rank, string suit)
     {
         Rank = rank;
         Suit = suit;
@@ -19,9 +18,13 @@ public class Card
         // Ordinary defense rules (attack card was not a trump suit)
         if (attackCard.Suit != trumpSuit)
         {
-            if (defendCard.Suit == attackCard.Suit || defendCard.Suit == trumpSuit)
+            if (defendCard.Suit == attackCard.Suit)
             {
                 return defendCard.Rank > attackCard.Rank;
+            }
+            else if (defendCard.Suit == trumpSuit)
+            {
+                return true;
             }
             else
             {

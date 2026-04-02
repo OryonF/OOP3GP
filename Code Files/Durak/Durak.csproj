@@ -8,4 +8,132 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- Empty placeholder card -->
+    <Resource Include="empty.png" />
+
+    <!-- i_* theme -->
+    <Resource Include="i_clubs_6.png" />
+    <Resource Include="i_clubs_7.png" />
+    <Resource Include="i_clubs_8.png" />
+    <Resource Include="i_clubs_9.png" />
+    <Resource Include="i_clubs_10.png" />
+    <Resource Include="i_clubs_J.png" />
+    <Resource Include="i_clubs_Q.png" />
+    <Resource Include="i_clubs_K.png" />
+    <Resource Include="i_clubs_A.png" />
+
+    <Resource Include="i_diamonds_6.png" />
+    <Resource Include="i_diamonds_7.png" />
+    <Resource Include="i_diamonds_8.png" />
+    <Resource Include="i_diamonds_9.png" />
+    <Resource Include="i_diamonds_10.png" />
+    <Resource Include="i_diamonds_J.png" />
+    <Resource Include="i_diamonds_Q.png" />
+    <Resource Include="i_diamonds_K.png" />
+    <Resource Include="i_diamonds_A.png" />
+
+    <Resource Include="i_hearts_6.png" />
+    <Resource Include="i_hearts_7.png" />
+    <Resource Include="i_hearts_8.png" />
+    <Resource Include="i_hearts_9.png" />
+    <Resource Include="i_hearts_10.png" />
+    <Resource Include="i_hearts_J.png" />
+    <Resource Include="i_hearts_Q.png" />
+    <Resource Include="i_hearts_K.png" />
+    <Resource Include="i_hearts_A.png" />
+
+    <Resource Include="i_spades_6.png" />
+    <Resource Include="i_spades_7.png" />
+    <Resource Include="i_spades_8.png" />
+    <Resource Include="i_spades_9.png" />
+    <Resource Include="i_spades_10.png" />
+    <Resource Include="i_spades_J.png" />
+    <Resource Include="i_spades_Q.png" />
+    <Resource Include="i_spades_K.png" />
+    <Resource Include="i_spades_A.png" />
+
+    <!-- n_* theme -->
+    <Resource Include="n_clubs_6.png" />
+    <Resource Include="n_clubs_7.png" />
+    <Resource Include="n_clubs_8.png" />
+    <Resource Include="n_clubs_9.png" />
+    <Resource Include="n_clubs_10.png" />
+    <Resource Include="n_clubs_J.png" />
+    <Resource Include="n_clubs_Q.png" />
+    <Resource Include="n_clubs_K.png" />
+    <Resource Include="n_clubs_A.png" />
+
+    <Resource Include="n_diamonds_6.png" />
+    <Resource Include="n_diamonds_7.png" />
+    <Resource Include="n_diamonds_8.png" />
+    <Resource Include="n_diamonds_9.png" />
+    <Resource Include="n_diamonds_10.png" />
+    <Resource Include="n_diamonds_J.png" />
+    <Resource Include="n_diamonds_Q.png" />
+    <Resource Include="n_diamonds_K.png" />
+    <Resource Include="n_diamonds_A.png" />
+
+    <Resource Include="n_hearts_6.png" />
+    <Resource Include="n_hearts_7.png" />
+    <Resource Include="n_hearts_8.png" />
+    <Resource Include="n_hearts_9.png" />
+    <Resource Include="n_hearts_10.png" />
+    <Resource Include="n_hearts_J.png" />
+    <Resource Include="n_hearts_Q.png" />
+    <Resource Include="n_hearts_K.png" />
+    <Resource Include="n_hearts_A.png" />
+
+    <Resource Include="n_spades_6.png" />
+    <Resource Include="n_spades_7.png" />
+    <Resource Include="n_spades_8.png" />
+    <Resource Include="n_spades_9.png" />
+    <Resource Include="n_spades_10.png" />
+    <Resource Include="n_spades_J.png" />
+    <Resource Include="n_spades_Q.png" />
+    <Resource Include="n_spades_K.png" />
+    <Resource Include="n_spades_A.png" />
+
+    <!-- s_* theme -->
+    <Resource Include="s_clubs_6.png" />
+    <Resource Include="s_clubs_7.png" />
+    <Resource Include="s_clubs_8.png" />
+    <Resource Include="s_clubs_9.png" />
+    <Resource Include="s_clubs_10.png" />
+    <Resource Include="s_clubs_J.png" />
+    <Resource Include="s_clubs_Q.png" />
+    <Resource Include="s_clubs_K.png" />
+    <Resource Include="s_clubs_A.png" />
+
+    <Resource Include="s_diamonds_6.png" />
+    <Resource Include="s_diamonds_7.png" />
+    <Resource Include="s_diamonds_8.png" />
+    <Resource Include="s_diamonds_9.png" />
+    <Resource Include="s_diamonds_10.png" />
+    <Resource Include="s_diamonds_J.png" />
+    <Resource Include="s_diamonds_Q.png" />
+    <Resource Include="s_diamonds_K.png" />
+    <Resource Include="s_diamonds_A.png" />
+
+    <Resource Include="s_hearts_6.png" />
+    <Resource Include="s_hearts_7.png" />
+    <Resource Include="s_hearts_8.png" />
+    <Resource Include="s_hearts_9.png" />
+    <Resource Include="s_hearts_10.png" />
+    <Resource Include="s_hearts_J.png" />
+    <Resource Include="s_hearts_Q.png" />
+    <Resource Include="s_hearts_K.png" />
+    <Resource Include="s_hearts_A.png" />
+
+    <Resource Include="s_spades_6.png" />
+    <Resource Include="s_spades_7.png" />
+    <Resource Include="s_spades_8.png" />
+    <Resource Include="s_spades_9.png" />
+    <Resource Include="s_spades_10.png" />
+    <Resource Include="s_spades_J.png" />
+    <Resource Include="s_spades_Q.png" />
+    <Resource Include="s_spades_K.png" />
+    <Resource Include="s_spades_A.png" />
+  </ItemGroup>
+
 </Project>
