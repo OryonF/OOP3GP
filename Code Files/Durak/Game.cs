@@ -6,6 +6,7 @@ using System.Windows;
 
 public class Game
 {
+
     public Deck deck;
     public Player human;
     public ComputerPlayer cpu;
@@ -17,10 +18,10 @@ public class Game
 
     public List<Card> CurrentRoundAttacks { get; private set; } = new List<Card>();
     public List<Card> CurrentRoundDefends { get; private set; } = new List<Card>();
-    public Card LastPlayedCard { get; private set; }
+    public Card? LastPlayedCard { get; private set; }
 
-    private StatsSettings stats;
-    private Gamelog currentlog;
+    private StatsSettingsData stats;
+    //private GameLog currentlog;(Will be implemented later)
 
     public Game()
     {
@@ -43,11 +44,15 @@ public class Game
         TrumpSuit = deck.GetBottomCard().Suit;
 
         //JSON
-        stats = StatsSettingsManager.load();
+        stats = StatsSettingsManager.Load();
+        CardThemePrefix = stats.SelectedCardTheme;
 
-        currentlog = new Gamelog();
-        currentlog.TrumpSuit = TrumpSuit();
 
+        // Initialize game log
+        //currentlog = new Gamelog();
+        //currentlog.TrumpSuit = TrumpSuit;
+
+        // First Attacker
         PlayerAttack = false; // currently set to cpu always attacking first for testing; replace with DetermineFirstAttacker(); in final
         PlayerMove = PlayerAttack;
     }
@@ -58,11 +63,12 @@ public class Game
 
         LastPlayedCard = card;
 
+        /* Log move
         string moveText = isPlayer
             ? $"Player played {card.Rank} of {card.Suit}."
             : $"CPU played {card.Rank} of {card.Suit}.";
 
-        currentlog.Moves.Add(moveText);
+        currentlog.Moves.Add(moveText); */
 
         bool isAttack = (PlayerMove && PlayerAttack) || (!PlayerMove && !PlayerAttack);
 
@@ -111,11 +117,30 @@ public class Game
         string result = CheckEndState();
 
         if (result != "")
-        {
             EndGame(result);
-        }
+        
 
         return result;
+    }
+
+        private void EndGame(string result)
+    {
+        stats.TotalGames++;
+
+        if (result.Contains("You won"))
+        {
+            stats.Wins++;
+        }
+        else
+        {
+            stats.Losses++;
+        }
+
+        // Save current card theme
+        stats.SelectedCardTheme = CardThemePrefix;
+
+        // Write to JSON file
+        StatsSettingsManager.Save(stats);
     }
 
 
@@ -190,31 +215,11 @@ public class Game
         return "";
     }
 
-    private void EndGame(string result)
-    {
-        stats.TotalGames++;
-
-        if (result.Contains("You won"))
-        {
-            stats.Stats.Wins++;
-            currentlog.Winner = "Player";
-        }
-        else
-        {
-            stats.Losses++;
-            currentlog.Winner = "CPU";
-        }
-
-        // Save to JSON file
-        StatsSettingsManager.Save(stats);
-        GameLogManager.Save(currentlog);
-    }
-
     public void CpuTurn()
     {
         bool isCpuAttack = !PlayerAttack;
 
-        Card cpuCard = cpu.MakeMove(isCpuAttack, CurrentRoundAttacks, LastPlayedCard, TrumpSuit);
+        Card? cpuCard = cpu.MakeMove(isCpuAttack, CurrentRoundAttacks, LastPlayedCard, TrumpSuit);
 
         if (cpuCard != null)
         {
@@ -281,8 +286,8 @@ public class Game
 
     private bool DetermineFirstAttacker()
     {
-        Card playerTrump = null;
-        Card cpuTrump = null;
+        Card? playerTrump = null;
+        Card? cpuTrump = null;
 
         foreach (var card in human.hand)
         {
