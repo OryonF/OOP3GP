@@ -1,49 +1,49 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\",
+  "WorkspaceRootPath": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\computerplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:computerplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\gamerules.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:gamerules.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\statssettings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:statssettings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\statssettings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\statssettings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:statssettings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\temp project folder\\oop3gp\\code files\\durak\\gamerules.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\statssettings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:statssettings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\computerplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:computerplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\gamerules.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:gamerules.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|c:\\users\\mtthw\\desktop\\durak test folder\\oop3gp\\code files\\durak\\gamerules.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{08DC7F32-A7FA-42C8-A05D-D5870F51C177}|Durak.csproj|solutionrelative:gamerules.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -54,15 +54,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ComputerPlayer.cs",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\ComputerPlayer.cs",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\ComputerPlayer.cs",
               "RelativeDocumentMoniker": "ComputerPlayer.cs",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\ComputerPlayer.cs",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\ComputerPlayer.cs",
               "RelativeToolTip": "ComputerPlayer.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAA2wDUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -72,35 +72,35 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowKQAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAALEAAAAAAAAAAAAuwOEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-08T04:10:17.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Game.cs",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Game.cs",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Game.cs",
               "RelativeDocumentMoniker": "Game.cs",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Game.cs",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Game.cs",
               "RelativeToolTip": "Game.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAIAzwKIAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAANkAAAAAAAAAAAAuwAkBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-30T08:48:03.434Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "GameRules.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\GameRules.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\GameRules.xaml.cs",
               "RelativeDocumentMoniker": "GameRules.xaml.cs",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\GameRules.xaml.cs",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\GameRules.xaml.cs",
               "RelativeToolTip": "GameRules.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -108,11 +108,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Player.cs",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Player.cs",
               "RelativeDocumentMoniker": "Player.cs",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Player.cs",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Player.cs",
               "RelativeToolTip": "Player.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -120,11 +120,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Card.cs",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Card.cs",
               "RelativeDocumentMoniker": "Card.cs",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Card.cs",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Card.cs",
               "RelativeToolTip": "Card.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAADwvz0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -132,11 +132,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Deck.cs",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Deck.cs",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Deck.cs",
               "RelativeDocumentMoniker": "Deck.cs",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Deck.cs",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Deck.cs",
               "RelativeToolTip": "Deck.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwDAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -146,9 +146,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-02-25T21:29:37.05Z",
@@ -156,34 +156,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "StatsSettings.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\StatsSettings.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\StatsSettings.xaml.cs",
               "RelativeDocumentMoniker": "StatsSettings.xaml.cs",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\StatsSettings.xaml.cs",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\StatsSettings.xaml.cs",
               "RelativeToolTip": "StatsSettings.xaml.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAewDAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAiwEMAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-30T07:24:35.433Z"
+              "WhenOpened": "2026-03-30T07:24:35.433Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "StatsSettings.xaml",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\StatsSettings.xaml",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\StatsSettings.xaml",
               "RelativeDocumentMoniker": "StatsSettings.xaml",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\StatsSettings.xaml",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\StatsSettings.xaml",
               "RelativeToolTip": "StatsSettings.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-30T06:40:40.01Z"
+              "WhenOpened": "2026-03-30T06:40:40.01Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "GameRules.xaml",
-              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\GameRules.xaml",
+              "DocumentMoniker": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\GameRules.xaml",
               "RelativeDocumentMoniker": "GameRules.xaml",
-              "ToolTip": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\GameRules.xaml",
+              "ToolTip": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\GameRules.xaml",
               "RelativeToolTip": "GameRules.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-03-30T06:31:36.328Z"

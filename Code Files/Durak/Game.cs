@@ -9,6 +9,7 @@ public class Game
     public Player human;
     public ComputerPlayer cpu;
 
+    public string CardThemePrefix { get; set; } = "n"; // default = normal
     public string TrumpSuit { get; private set; } = "";
     public bool PlayerAttack { get; private set; }  // true = human attacking
     public bool PlayerMove { get; private set; }    // whose move it is

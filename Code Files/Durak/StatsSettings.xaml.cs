@@ -19,13 +19,32 @@ namespace Durak
     /// </summary>
     public partial class StatsSettings : Window
     {
-        public StatsSettings()
+        private Game game;
+        private string selectedTheme;
+        public StatsSettings(Game gameInstance)
         {
             InitializeComponent();
+            game = gameInstance;
+
+            selectedTheme = game.CardThemePrefix;
+
+            switch (selectedTheme)
+            {
+                case "n":
+                    StatSet_NormalThemeRadioButton.IsChecked = true;
+                    break;
+                case "i":
+                    StatSet_InvertedThemeRadioButton.IsChecked = true;
+                    break;
+                case "s":
+                    StatSet_SillyThemeRadioButton.IsChecked = true;
+                    break;
+            }
         }
 
         private void StatSet_SaveAndExitButton_Click(object sender, RoutedEventArgs e)
         {
+            game.CardThemePrefix=selectedTheme;
             this.Close();
         }
 
@@ -36,17 +55,17 @@ namespace Durak
 
         private void StatSet_NormalThemeRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            selectedTheme = "n";
         }
 
         private void StatSet_InvertedThemeRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            selectedTheme = "i";
         }
 
         private void StatSet_SillyThemeRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-
+            selectedTheme = "s";
         }
     }
 }
