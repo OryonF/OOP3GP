@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Durak;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -17,6 +18,9 @@ public class Game
     public List<Card> CurrentRoundAttacks { get; private set; } = new List<Card>();
     public List<Card> CurrentRoundDefends { get; private set; } = new List<Card>();
     public Card LastPlayedCard { get; private set; }
+
+    private StatsSettings stats;
+    private Gamelog currentlog;
 
     public Game()
     {
@@ -38,6 +42,12 @@ public class Game
 
         TrumpSuit = deck.GetBottomCard().Suit;
 
+        //JSON
+        stats = StatsSettingsManager.load();
+
+        currentlog = new Gamelog();
+        currentlog.TrumpSuit = TrumpSuit();
+
         PlayerAttack = false; // currently set to cpu always attacking first for testing; replace with DetermineFirstAttacker(); in final
         PlayerMove = PlayerAttack;
     }
@@ -47,6 +57,12 @@ public class Game
         if (card == null) return "";
 
         LastPlayedCard = card;
+
+        string moveText = isPlayer
+            ? $"Player played {card.Rank} of {card.Suit}."
+            : $"CPU played {card.Rank} of {card.Suit}.";
+
+        currentlog.Moves.Add(moveText);
 
         bool isAttack = (PlayerMove && PlayerAttack) || (!PlayerMove && !PlayerAttack);
 
@@ -92,8 +108,16 @@ public class Game
                 CpuTurn();
         }
 
-        return CheckEndState();
+        string result = CheckEndState();
+
+        if (result != "")
+        {
+            EndGame(result);
+        }
+
+        return result;
     }
+
 
     public void SwitchAttack()
     {
@@ -166,6 +190,26 @@ public class Game
         return "";
     }
 
+    private void EndGame(string result)
+    {
+        stats.TotalGames++;
+
+        if (result.Contains("You won"))
+        {
+            stats.Stats.Wins++;
+            currentlog.Winner = "Player";
+        }
+        else
+        {
+            stats.Losses++;
+            currentlog.Winner = "CPU";
+        }
+
+        // Save to JSON file
+        StatsSettingsManager.Save(stats);
+        GameLogManager.Save(currentlog);
+    }
+
     public void CpuTurn()
     {
         bool isCpuAttack = !PlayerAttack;
@@ -178,6 +222,7 @@ public class Game
 
             if (result != "")
             {
+                EndGame(result);
                 MessageBox.Show(result);
             }
 
