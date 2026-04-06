@@ -5,6 +5,9 @@
     <Compile Update="GameRules.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MoveLogWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="StatsSettings.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

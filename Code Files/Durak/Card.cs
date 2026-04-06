@@ -48,15 +48,36 @@ public class Card
     //Compares card against previously used attack cards in given round to determine if attackCard can be used for follow up attacks
     //Use to iterate through hand and disable WPF 'Use Selected Card' button when player is attacking
 
-    public static bool CanAdditionalAttack(Card card, List<Card> previousAttackCards)
+    public static bool CanAdditionalAttack(Card card, List<Card> attackCards, List<Card> defendCards)
     {
-        foreach (var previousAttackCard in previousAttackCards)
+        // Check against attack cards
+        foreach (var c in attackCards)
         {
-            if (card.Rank == previousAttackCard.Rank)
-            {
+            if (card.Rank == c.Rank)
                 return true;
-            }
         }
+
+        // Check against defense cards
+        foreach (var c in defendCards)
+        {
+            if (card.Rank == c.Rank)
+                return true;
+        }
+
         return false;
+    }
+
+    public override string ToString()
+    {
+        string rankText = Rank switch
+        {
+            11 => "Jack",
+            12 => "Queen",
+            13 => "King",
+            14 => "Ace",
+            _ => Rank.ToString()
+        };
+
+        return $"{rankText} of {Suit}";
     }
 }

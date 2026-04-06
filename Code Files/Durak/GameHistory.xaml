@@ -1,0 +1,23 @@
+﻿<Window x:Class="Durak.GameHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Game History" Height="450" Width="800">
+    <Grid Margin="10">
+        <DataGrid x:Name="GameHistoryDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}" Width="150"/>
+                <DataGridTextColumn Header="Trump Suit" Binding="{Binding TrumpSuit}" Width="100"/>
+                <DataGridTextColumn Header="Starting Attacker" Binding="{Binding StartingAttacker}" Width="120"/>
+                <DataGridTextColumn Header="Winner" Binding="{Binding Winner}" Width="100"/>
+                <DataGridTemplateColumn Header="Actions" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="View Move Log" Click="ViewMoveLogButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
