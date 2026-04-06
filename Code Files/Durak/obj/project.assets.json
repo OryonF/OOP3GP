@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+      "projectUniqueName": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
       "projectName": "Durak",
-      "projectPath": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+      "projectPath": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
       "packagesPath": "C:\\Users\\mtthw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mtthw\\Desktop\\temp project folder\\OOP3GP\\Code Files\\Durak\\obj\\",
+      "outputPath": "C:\\Users\\mtthw\\Desktop\\durak test folder\\OOP3GP\\Code Files\\Durak\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mtthw\\AppData\\Roaming\\NuGet\\NuGet.Config",

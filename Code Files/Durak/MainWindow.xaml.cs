@@ -99,7 +99,7 @@ namespace Durak
                         14 => "A",
                         _ => cardToShow.Rank.ToString()
                     };
-                    string fileName = $"n_{cardToShow.Suit.ToLower()}_{rankTextForFile}.png";
+                    string fileName = $"{game.CardThemePrefix}_{cardToShow.Suit.ToLower()}_{rankTextForFile}.png";
                     playerSlots[i].Source = new BitmapImage(
                         new Uri($"pack://application:,,,/{fileName}", UriKind.Absolute));
                 }
@@ -136,7 +136,7 @@ namespace Durak
                         14 => "A",
                         _ => cardToShow.Rank.ToString()
                     };
-                    string fileName = $"n_{cardToShow.Suit.ToLower()}_{rankTextForFile}.png";
+                    string fileName = $"{game.CardThemePrefix}_{cardToShow.Suit.ToLower()}_{rankTextForFile}.png";
                     cpuSlots[i].Source = new BitmapImage(
                         new Uri($"pack://application:,,,/{fileName}", UriKind.Absolute));
                 }
@@ -188,9 +188,10 @@ namespace Durak
 
         private void Main_StatsSettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            StatsSettings statSetWindow = new StatsSettings();
+            StatsSettings statSetWindow = new StatsSettings(game);
             statSetWindow.Owner = this;
             statSetWindow.ShowDialog();
+            UpdateUI();
         }
 
         // Enable "Use Card" button only when a valid card is selected
