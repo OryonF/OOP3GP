@@ -10,6 +10,11 @@ public class Game
     public Deck deck;
     public Player human;
     public ComputerPlayer cpu;
+    public int CurrentGameID { get; private set; }
+
+    public DateTime StartTime { get; private set; }
+    public string StartingAttacker { get; private set; }
+    public bool gameSaved { get; private set; }
 
     public string CardThemePrefix { get; set; } = "n"; // default = normal
     public string TrumpSuit { get; private set; } = "";
@@ -32,29 +37,37 @@ public class Game
 
     public void StartGame()
     {
+        StartTime = DateTime.Now;
+
         deck.Initialize();
         deck.Shuffle(deck.Cards);
 
+        // Set temporary values first
+        TrumpSuit = deck.GetBottomCard().Suit;
+        PlayerAttack = DetermineFirstAttacker();
+        StartingAttacker = PlayerAttack ? "HUMAN" : "CPU";
+        PlayerMove = PlayerAttack;
+
+        var record = new DurakDBModel
+        {
+            StartTime = StartTime,
+            TrumpSuit = TrumpSuit.ToUpper(),
+            StartingAttacker = StartingAttacker,
+            Winner = "UNDECLARED"
+        };
+
+        CurrentGameID = Database.InsertGame(record);
+
         for (int i = 0; i < 6; i++)
         {
-            human.AddCard(deck.Draw());
-            cpu.AddCard(deck.Draw());
+            Card humanCard = deck.Draw();
+            human.AddCard(humanCard);
+            MoveLogger.LogMove(CurrentGameID, "HUMAN", "DRAW", humanCard.ToString());
+
+            Card cpuCard = deck.Draw();
+            cpu.AddCard(cpuCard);
+            MoveLogger.LogMove(CurrentGameID, "CPU", "DRAW", cpuCard.ToString());
         }
-
-        TrumpSuit = deck.GetBottomCard().Suit;
-
-        //JSON
-        stats = StatsSettingsManager.Load();
-        CardThemePrefix = stats.SelectedCardTheme;
-
-
-        // Initialize game log
-        //currentlog = new Gamelog();
-        //currentlog.TrumpSuit = TrumpSuit;
-
-        // First Attacker
-        PlayerAttack = false; // currently set to cpu always attacking first for testing; replace with DetermineFirstAttacker(); in final
-        PlayerMove = PlayerAttack;
     }
 
     public string Move(Card card, bool isPlayer = true, bool allowCpuResponse = true)
@@ -62,13 +75,6 @@ public class Game
         if (card == null) return "";
 
         LastPlayedCard = card;
-
-        /* Log move
-        string moveText = isPlayer
-            ? $"Player played {card.Rank} of {card.Suit}."
-            : $"CPU played {card.Rank} of {card.Suit}.";
-
-        currentlog.Moves.Add(moveText); */
 
         bool isAttack = (PlayerMove && PlayerAttack) || (!PlayerMove && !PlayerAttack);
 
@@ -98,20 +104,20 @@ public class Game
             CurrentRoundAttacks.Count == 6 &&
             CurrentRoundDefends.Count == 6)
         {
-            foreach (var c in CurrentRoundAttacks)
-                deck.DiscardPile.Add(c);
+            MoveLogger.LogMove(CurrentGameID,
+                PlayerAttack ? "HUMAN" : "CPU",
+                "PASS",
+                "Attack limit reached");
 
-            foreach (var c in CurrentRoundDefends)
-                deck.DiscardPile.Add(c);
+            foreach (var c in CurrentRoundAttacks) deck.DiscardPile.Add(c);
+            foreach (var c in CurrentRoundDefends) deck.DiscardPile.Add(c);
 
             SwitchAttack();
             ResetRound();
             RefillHands();
 
             PlayerMove = PlayerAttack;
-
-            if (!PlayerMove && allowCpuResponse)
-                CpuTurn();
+            if (!PlayerMove && allowCpuResponse) CpuTurn();
         }
 
         string result = CheckEndState();
@@ -151,23 +157,49 @@ public class Game
 
     public void PlayerPasses()
     {
+        if (CurrentRoundAttacks.Count == 0)
+        {
+            // Skip round start → just swap attacker
+            MoveLogger.LogMove(CurrentGameID, "HUMAN", "PASS", "End of round");
+
+            SwitchAttack();
+            PlayerMove = PlayerAttack;
+
+            if (!PlayerMove)
+                CpuTurn();
+
+            return;
+        }
         if (!PlayerAttack)
         {
+            MoveLogger.LogMove(CurrentGameID, "HUMAN", "PASS", "End of round");
             // defender picks up
             foreach (var card in CurrentRoundAttacks)
+            {
                 human.AddCard(card);
+                MoveLogger.LogMove(CurrentGameID, "HUMAN", "PICKUP", card.ToString());
+            }
 
             foreach (var card in CurrentRoundDefends)
+            {
                 human.AddCard(card);
+                MoveLogger.LogMove(CurrentGameID, "HUMAN", "PICKUP", card.ToString());
+            }
+
         }
         else
         {
+            MoveLogger.LogMove(CurrentGameID, "HUMAN", "PASS", "End of round");
             // successful defense
             foreach (var card in CurrentRoundAttacks)
+            {
                 deck.DiscardPile.Add(card);
+            }
 
             foreach (var card in CurrentRoundDefends)
+            {
                 deck.DiscardPile.Add(card);
+            }
 
             SwitchAttack();
         }
@@ -185,7 +217,12 @@ public class Game
     {
         while (player.hand.Count < 6 && deck.Cards.Count > 0)
         {
-            player.AddCard(deck.Draw());
+            Card drawnCard = deck.Draw();
+            player.AddCard(drawnCard);
+
+            string playerType = player == human ? "HUMAN" : "CPU";
+
+            MoveLogger.LogMove(CurrentGameID, playerType, "DRAW", drawnCard.ToString());
         }
     }
 
@@ -210,8 +247,18 @@ public class Game
 
     public string CheckEndState()
     {
-        if (human.hand.Count == 0) return "You won!";
-        if (cpu.hand.Count == 0) return "CPU won!";
+        if (human.hand.Count == 0)
+        {
+            SaveGame("HUMAN");
+            return "You won!";
+        }
+
+        if (cpu.hand.Count == 0)
+        {
+            SaveGame("CPU");
+            return "CPU won!";
+        }
+
         return "";
     }
 
@@ -219,7 +266,7 @@ public class Game
     {
         bool isCpuAttack = !PlayerAttack;
 
-        Card? cpuCard = cpu.MakeMove(isCpuAttack, CurrentRoundAttacks, LastPlayedCard, TrumpSuit);
+        Card cpuCard = cpu.MakeMove(isCpuAttack, CurrentRoundAttacks, CurrentRoundDefends, LastPlayedCard, TrumpSuit);
 
         if (cpuCard != null)
         {
@@ -231,7 +278,7 @@ public class Game
                 MessageBox.Show(result);
             }
 
-            return; // 🔥 critical
+            return;
         }
 
         // CPU cannot play
@@ -255,6 +302,7 @@ public class Game
             foreach (var card in CurrentRoundDefends)
                 deck.DiscardPile.Add(card);
 
+            MoveLogger.LogMove(CurrentGameID, "CPU", "PASS", "End of round");
             SwitchAttack();
             ResetRound();
             RefillHands();
@@ -270,11 +318,19 @@ public class Game
 
     private void CpuPickupCards()
     {
+        MoveLogger.LogMove(CurrentGameID, "CPU", "PASS", "End of round");
+
         foreach (var card in CurrentRoundAttacks)
+        {
+            MoveLogger.LogMove(CurrentGameID, "CPU", "PICKUP", card.ToString());
             cpu.AddCard(card);
+        }
 
         foreach (var card in CurrentRoundDefends)
+        {
+            MoveLogger.LogMove(CurrentGameID, "CPU", "PICKUP", card.ToString());
             cpu.AddCard(card);
+        }
     }
 
     public void ResetRound()
@@ -282,6 +338,14 @@ public class Game
         CurrentRoundAttacks.Clear();
         CurrentRoundDefends.Clear();
         LastPlayedCard = null;
+    }
+
+    private void SaveGame(string winner)
+    {
+        if (gameSaved) return;
+
+        Database.UpdateGameWinner(CurrentGameID, winner);
+        gameSaved = true;
     }
 
     private bool DetermineFirstAttacker()

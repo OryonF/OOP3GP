@@ -12,6 +12,7 @@ namespace Durak
         public MainWindow()
         {
             InitializeComponent();
+            Database.Initialize();
             game = new Game();
             game.StartGame();
             UpdateUI();
@@ -147,7 +148,6 @@ namespace Durak
                 }
             }
         }
-
         private void Main_UseCardButton_Click(object sender, RoutedEventArgs e)
         {
             int index = Main_PlayerHandListBox.SelectedIndex;
@@ -210,7 +210,7 @@ namespace Durak
             {
                 if (game.PlayerAttack && game.CurrentRoundAttacks.Count >= 1)
                 {
-                    Main_UseCardButton.IsEnabled = Card.CanAdditionalAttack(selectedCard, game.CurrentRoundAttacks);
+                    Main_UseCardButton.IsEnabled = Card.CanAdditionalAttack(selectedCard, game.CurrentRoundAttacks, game.CurrentRoundDefends);
                 }
                 else if (!game.PlayerAttack)
                 {
