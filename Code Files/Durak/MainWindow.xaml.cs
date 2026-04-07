@@ -76,7 +76,7 @@ namespace Durak
             // Update Player slots
             for (int i = 0; i < playerSlots.Length; i++)
             {
-                Card cardToShow = null;
+                Card? cardToShow = null;
 
                 if (game.PlayerAttack)
                 {
@@ -113,7 +113,7 @@ namespace Durak
             // Update CPU slots
             for (int i = 0; i < cpuSlots.Length; i++)
             {
-                Card cardToShow = null;
+                Card? cardToShow = null;
 
                 if (game.PlayerAttack)
                 {
