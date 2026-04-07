@@ -63,5 +63,6 @@
         <!-- Buttons -->
         <Button x:Name="StatSet_ExitWithoutSavingButton" Content="_Return to game without saving" HorizontalAlignment="Left" Margin="218,387,0,0" VerticalAlignment="Top" IsCancel="True" TabIndex="3" Click="StatSet_ExitWithoutSavingButton_Click"/>
         <Button x:Name="StatSet_SaveAndExitButton" Content="_Close and save settings" HorizontalAlignment="Left" Margin="446,387,0,0" VerticalAlignment="Top" IsDefault="True" TabIndex="4" Click="StatSet_SaveAndExitButton_Click"/>
+        <Button x:Name="StatSet_ViewGameHistoryButton" Content="View Game History" HorizontalAlignment="Left" Margin="15,139,0,0" VerticalAlignment="Top" Click="StatSet_ViewGameHistoryButton_Click"/>
     </Grid>
 </Window>

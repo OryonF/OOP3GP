@@ -67,5 +67,11 @@ namespace Durak
         {
             selectedTheme = "s";
         }
+
+        private void StatSet_ViewGameHistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            var historyWindow = new GameHistory();
+            historyWindow.Show();
+        }
     }
 }
