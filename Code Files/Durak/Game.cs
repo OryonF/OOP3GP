@@ -48,6 +48,16 @@ public class Game
 
         // Set temporary values first
         TrumpSuit = deck.GetBottomCard().Suit;
+
+        for (int i = 0; i < 6; i++)
+        {
+            Card humanCard = deck.Draw();
+            human.AddCard(humanCard);
+
+            Card cpuCard = deck.Draw();
+            cpu.AddCard(cpuCard);
+        }
+
         PlayerAttack = DetermineFirstAttacker();
         StartingAttacker = PlayerAttack ? "HUMAN" : "CPU";
         PlayerMove = PlayerAttack;
@@ -64,13 +74,8 @@ public class Game
 
         for (int i = 0; i < 6; i++)
         {
-            Card humanCard = deck.Draw();
-            human.AddCard(humanCard);
-            MoveLogger.LogMove(CurrentGameID, "HUMAN", "DRAW", humanCard.ToString());
-
-            Card cpuCard = deck.Draw();
-            cpu.AddCard(cpuCard);
-            MoveLogger.LogMove(CurrentGameID, "CPU", "DRAW", cpuCard.ToString());
+            MoveLogger.LogMove(CurrentGameID, "HUMAN", "DRAW", human.hand[i].ToString());
+            MoveLogger.LogMove(CurrentGameID, "CPU", "DRAW", cpu.hand[i].ToString());
         }
     }
 
@@ -83,26 +88,26 @@ public class Game
 
         bool isAttack = (PlayerMove && PlayerAttack) || (!PlayerMove && !PlayerAttack);
 
+        // Add card to appropriate list
         if (isAttack)
         {
             if (CurrentRoundAttacks.Count >= 6)
                 return "";
 
             CurrentRoundAttacks.Add(card);
+            MoveLogger.LogMove(CurrentGameID, isPlayer ? "HUMAN" : "CPU", "ATTACK", card.ToString()); // log immediately
         }
         else
         {
             CurrentRoundDefends.Add(card);
+            MoveLogger.LogMove(CurrentGameID, isPlayer ? "HUMAN" : "CPU", "DEFEND", card.ToString()); // log immediately
         }
 
-        if (isPlayer)
-        {
-            human.RemoveCard(card);
-        }
-        else
-        { cpu.RemoveCard(card); }
+        // Remove card from hand
+        if (isPlayer) human.RemoveCard(card);
+        else cpu.RemoveCard(card);
+
         SwitchMove();
-
 
         // Max 6 resolved → end round
         if (!isAttack &&
@@ -129,7 +134,6 @@ public class Game
 
         if (result != "")
             EndGame(result);
-        
 
         return result;
     }
