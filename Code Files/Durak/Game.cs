@@ -133,13 +133,33 @@ public class Game
     {
         stats.TotalGames++;
 
+
         if (result.Contains("You won"))
         {
             stats.Wins++;
+
+            //Determine win or loss streak
+            if (stats.CurrentStreak >= 0)
+                stats.CurrentStreak++;
+            else
+                stats.CurrentStreak = 1;
+
+            if (stats.CurrentStreak > stats.LongestWinStreak)
+                stats.CurrentStreak = stats.CurrentStreak;
         }
         else
         {
             stats.Losses++;
+
+            // Loss streak
+            if (stats.CurrentStreak <= 0)
+                stats.CurrentStreak--;
+
+            else
+                stats.CurrentStreak = -1;
+
+            if (-stats.CurrentStreak > stats.LongestLossStreak)
+                stats.LongestLossStreak = -stats.CurrentStreak;
         }
 
         // Save current card theme
