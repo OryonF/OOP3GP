@@ -276,7 +276,7 @@ namespace Durak
             Main_PlayAgainButton.Visibility = Visibility.Collapsed;
 
             UpdateUI();
-
+            // If the CPU goes first, it takes its turn and updates the screen before the player can do anything.
             if (!game.PlayerMove)
             {
                 game.CpuTurn();
