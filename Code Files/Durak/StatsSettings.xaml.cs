@@ -8,6 +8,8 @@ namespace Durak
         private Game game;
         private StatsSettingsData stats;
         private string selectedTheme;
+        public StatsSettingsData SavedStats => stats;
+        public bool SettingsSaved { get; private set; } = false;
 
         public StatsSettings(Game gameInstance)
         {
@@ -44,6 +46,8 @@ namespace Durak
             stats.SelectedCardTheme = selectedTheme;
             stats.PlayerName = StatSet_PlayerNameTextBox.Text;
             StatsSettingsManager.Save(stats);
+
+            SettingsSaved = true; // mark that user actually saved
             this.Close();
         }
 
@@ -64,12 +68,14 @@ namespace Durak
 
         private void StatSet_ResetStats_Click(object sender, RoutedEventArgs e)
         {
-            string message = "Do you want to reset the following stats?\n\n" +
+            string message = "Do you want to reset the following stats and settings?\n\n" +
                              "Player Name\n" +
+                             "Card Theme\n" +
                              "Games Played\n" +
                              "Wins\n" +
                              "Losses\n" +
                              "Win Streak\n\n" +
+                             "Additionally, any progress in the current game will be lost; no winner will be declared and a new game will be started.\n\n" +
                              "NOTE: Past games and move logs will still appear in View Game History";
 
             MessageBoxResult result = MessageBox.Show(
@@ -81,15 +87,18 @@ namespace Durak
 
             if (result == MessageBoxResult.OK)
             {
-                // Reset stats
                 stats = new StatsSettingsData();
-
-                // Save to JSON
                 StatsSettingsManager.Save(stats);
+                SettingsSaved = true;
 
-                MessageBox.Show("Stats have been reset.", "Reset Complete", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (Owner is MainWindow mainWindow)
+                {
+                    mainWindow.ResetGameAfterStatsReset(stats);
+                }
 
-                this.Close(); // reload fresh next time
+                MessageBox.Show("Stats have been reset and a new game has started.", "Reset Complete", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                this.Close();
             }
         }
     }

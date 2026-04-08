@@ -9,8 +9,13 @@ namespace Durak
 
         public static StatsSettingsData Load()
         {
+            // If file doesn't exist, create it with default stats
             if (!File.Exists(filePath))
-                return new StatsSettingsData();
+            {
+                var defaultStats = new StatsSettingsData();
+                Save(defaultStats); // creates stats.json immediately
+                return defaultStats;
+            }
 
             string json = File.ReadAllText(filePath);
             return JsonSerializer.Deserialize<StatsSettingsData>(json) ?? new StatsSettingsData();

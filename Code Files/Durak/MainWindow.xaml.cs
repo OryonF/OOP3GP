@@ -21,17 +21,40 @@ namespace Durak
             InitializeComponent();
             Database.Initialize();
 
-            //load player stats
             stats = StatsSettingsManager.Load();
-            Main_PlayerNameLabel.Content = $"Player {playerName}";
-            
+            playerName = stats.PlayerName;
+            Main_PlayerNameLabel.Content = $"Player: {playerName}";
+
             game = new Game();
+            game.CardThemePrefix = stats.SelectedCardTheme;
             game.StartGame();
+
             UpdateUI();
+
             if (!game.PlayerMove)
             {
                 game.CpuTurn();
                 UpdateUI();
+            }
+
+            this.Closing += MainWindow_Closing;
+        }
+
+        private void MainWindow_Closing(object? sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (game.CheckEndState() == "")
+            {
+                var result = MessageBox.Show(
+                    "Current game progress will be lost and no winner will be declared. Are you sure you want to exit?",
+                    "Confirm Exit",
+                    MessageBoxButton.OKCancel,
+                    MessageBoxImage.Warning
+                );
+
+                if (result == MessageBoxResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
@@ -244,11 +267,14 @@ namespace Durak
             statSetWindow.Owner = this;
             statSetWindow.ShowDialog();
 
-            // Get player name from StatsSettings player name textbox.
-            playerName = string.IsNullOrWhiteSpace(statSetWindow.StatSet_PlayerNameTextBox.Text)
-                        ? ""
-                        : statSetWindow.StatSet_PlayerNameTextBox.Text;
-            Main_PlayerNameLabel.Content = $"Player: {playerName}";
+            if (statSetWindow.SettingsSaved)
+            {
+                // Update MainWindow only if the user saved
+                playerName = statSetWindow.SavedStats.PlayerName;
+                Main_PlayerNameLabel.Content = $"Player: {playerName}";
+
+                game.CardThemePrefix = statSetWindow.SavedStats.SelectedCardTheme;
+            }
 
             UpdateUI();
         }
@@ -285,16 +311,46 @@ namespace Durak
             }
         }
 
-        // Restarts the game, updates the screen, hides the play again button, and lets the CPU go first if needed.
-        private void Main_PlayAgainButton_Click(object sender, RoutedEventArgs e)
+        public void ResetGameAfterStatsReset(StatsSettingsData newStats)
         {
+            stats = newStats;
+            playerName = stats.PlayerName;
+            Main_PlayerNameLabel.Content = $"Player: {playerName}";
+
             game = new Game();
+            game.CardThemePrefix = stats.SelectedCardTheme;
             game.StartGame();
 
             Main_PlayAgainButton.Visibility = Visibility.Collapsed;
 
             UpdateUI();
-            // If the CPU goes first, it takes its turn and updates the screen before the player can do anything.
+
+            if (!game.PlayerMove)
+            {
+                game.CpuTurn();
+                UpdateUI();
+            }
+        }
+
+        // Restarts the game, updates the screen, hides the play again button, and lets the CPU go first if needed.
+        private void Main_PlayAgainButton_Click(object sender, RoutedEventArgs e)
+        {
+            string currentTheme = game.CardThemePrefix;
+            string currentPlayerName = playerName;
+
+            stats.PlayerName = currentPlayerName;
+            stats.SelectedCardTheme = currentTheme;
+
+            game = new Game();
+            game.CardThemePrefix = currentTheme;
+            game.StartGame();
+
+            Main_PlayerNameLabel.Content = $"Player: {currentPlayerName}";
+
+            Main_PlayAgainButton.Visibility = Visibility.Collapsed;
+
+            UpdateUI();
+
             if (!game.PlayerMove)
             {
                 game.CpuTurn();

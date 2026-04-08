@@ -48,7 +48,7 @@ public class Game
 
         // Set temporary values first
         TrumpSuit = deck.GetBottomCard().Suit;
-        PlayerAttack = DetermineFirstAttacker();
+        PlayerAttack = false;
         StartingAttacker = PlayerAttack ? "HUMAN" : "CPU";
         PlayerMove = PlayerAttack;
 
@@ -138,18 +138,20 @@ public class Game
 
     private void EndGame(string result)
     {
-        if (statsSaved) return; // only update stats once
+        if (statsSaved) return;
         statsSaved = true;
+
+        stats = StatsSettingsManager.Load(); // ✅ reload latest data
 
         stats.TotalGames++;
 
-        if (result == "You won!")
+        if (result == "You won! The CPU is the durak!")
         {
             stats.Wins++;
             stats.CurrentStreak = Math.Max(0, stats.CurrentStreak) + 1;
             stats.LongestWinStreak = Math.Max(stats.LongestWinStreak, stats.CurrentStreak);
         }
-        else if (result == "CPU won!")
+        else if (result == "CPU won! You are the durak!")
         {
             stats.Losses++;
             stats.CurrentStreak = Math.Min(0, stats.CurrentStreak) - 1;
@@ -157,6 +159,7 @@ public class Game
         }
 
         stats.SelectedCardTheme = CardThemePrefix;
+
         StatsSettingsManager.Save(stats);
     }
 
@@ -269,13 +272,13 @@ public class Game
         if (human.hand.Count == 0)
         {
             SaveGame("HUMAN");
-            return "You won!";
+            return "You won! The CPU is the durak!";
         }
 
         if (cpu.hand.Count == 0)
         {
             SaveGame("CPU");
-            return "CPU won!";
+            return "CPU won! You are the durak!";
         }
 
         return "";
