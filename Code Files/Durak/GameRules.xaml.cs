@@ -23,7 +23,7 @@ namespace Durak
         {
             InitializeComponent();
         }
-
+        // This method is called when the Exit button is clicked. It simply closes the GameRules window.
         private void Rules_ExitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

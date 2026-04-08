@@ -5,6 +5,10 @@
     // Call this when it's the CPU's turn to make a move
     public Card MakeMove(bool isAttack, List<Card> currentRoundAttacks, List<Card> currentRoundDefends, Card lastPlayedCard, string trumpSuit)
     {
+        if (hand.Count == 0)
+        {
+            return null;
+        }
         // Starting attack: choose a random card
         if (isAttack && currentRoundAttacks.Count == 0)
         {
