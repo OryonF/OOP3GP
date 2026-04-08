@@ -48,7 +48,7 @@ public class Game
 
         // Set temporary values first
         TrumpSuit = deck.GetBottomCard().Suit;
-        PlayerAttack = DetermineFirstAttacker;
+        PlayerAttack = DetermineFirstAttacker();
         StartingAttacker = PlayerAttack ? "HUMAN" : "CPU";
         PlayerMove = PlayerAttack;
 
