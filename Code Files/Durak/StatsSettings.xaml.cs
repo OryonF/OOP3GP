@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Windows;
 
 namespace Durak
 {
@@ -23,7 +24,10 @@ namespace Durak
             StatSet_CurrentStreakValueLabel.Content = stats.CurrentStreak.ToString();
             StatSet_LongestWinStreakValueLabel.Content = stats.LongestWinStreak.ToString();
             StatSet_LongestLossStreakValueLabel.Content = stats.LongestLossStreak.ToString();
-            
+
+            //Display Player Name:
+            StatSet_PlayerNameTextBox.Text = stats.PlayerName ?? "";
+
             // Set theme
             selectedTheme = stats.SelectedCardTheme;
             switch (selectedTheme)
@@ -60,40 +64,33 @@ namespace Durak
 
         private void StatSet_ResetStats_Click(object sender, RoutedEventArgs e)
         {
-            // Reset Stats
-            stats.Wins = 0;
-            stats.Losses = 0;
-            stats.TotalGames = 0;
-            stats.SelectedCardTheme = "n";
-            stats.PlayerName = "";
-            stats.CurrentStreak = 0;
-            stats.LongestWinStreak = 0;
-            stats.LongestLossStreak = 0;
+            string message = "Do you want to reset the following stats?\n\n" +
+                             "Player Name\n" +
+                             "Games Played\n" +
+                             "Wins\n" +
+                             "Losses\n" +
+                             "Win Streak\n\n" +
+                             "NOTE: Past games and move logs will still appear in View Game History";
 
-            // Update labels 
-            StatSet_GamesPlayedValueLabel.Content = stats.TotalGames.ToString();
-            StatSet_CurrentStreakValueLabel.Content = "0";
+            MessageBoxResult result = MessageBox.Show(
+                message,
+                "Confirm Reset",
+                MessageBoxButton.OKCancel,
+                MessageBoxImage.Warning
+            );
 
-            // Update Radio Buttons
-            StatSet_NormalThemeRadioButton.IsChecked = true;
-            StatSet_InvertedThemeRadioButton.IsChecked = false;
-            StatSet_SillyThemeRadioButton.IsChecked = false;
+            if (result == MessageBoxResult.OK)
+            {
+                // Reset stats
+                stats = new StatsSettingsData();
 
-            StatSet_PlayerNameTextBox.Text = "";
+                // Save to JSON
+                StatsSettingsManager.Save(stats);
 
-            // Save reset stats to json file
-            StatsSettingsManager.Save(stats);
+                MessageBox.Show("Stats have been reset.", "Reset Complete", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Show message to notify stats have been reset
-            MessageBox.Show("Player statistics have been reset.", "Stats Reset", MessageBoxButton.OK, 
-                MessageBoxImage.Information);
-
-
-
-
-
-
-
+                this.Close(); // reload fresh next time
+            }
         }
     }
 } 

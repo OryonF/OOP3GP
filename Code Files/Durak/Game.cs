@@ -33,6 +33,8 @@ public class Game
         deck = new Deck();
         human = new Player();
         cpu = new ComputerPlayer();
+
+        stats = StatsSettingsManager.Load();
     }
 
     public void StartGame()
@@ -129,43 +131,29 @@ public class Game
         return result;
     }
 
-        private void EndGame(string result)
+    private bool statsSaved = false; // new field
+
+    private void EndGame(string result)
     {
+        if (statsSaved) return; // only update stats once
+        statsSaved = true;
+
         stats.TotalGames++;
 
-
-        if (result.Contains("You won"))
+        if (result == "You won!")
         {
             stats.Wins++;
-
-            //Determine win or loss streak
-            if (stats.CurrentStreak >= 0)
-                stats.CurrentStreak++;
-            else
-                stats.CurrentStreak = 1;
-
-            if (stats.CurrentStreak > stats.LongestWinStreak)
-                stats.CurrentStreak = stats.CurrentStreak;
+            stats.CurrentStreak = Math.Max(0, stats.CurrentStreak) + 1;
+            stats.LongestWinStreak = Math.Max(stats.LongestWinStreak, stats.CurrentStreak);
         }
-        else
+        else if (result == "CPU won!")
         {
             stats.Losses++;
-
-            // Loss streak
-            if (stats.CurrentStreak <= 0)
-                stats.CurrentStreak--;
-
-            else
-                stats.CurrentStreak = -1;
-
-            if (-stats.CurrentStreak > stats.LongestLossStreak)
-                stats.LongestLossStreak = -stats.CurrentStreak;
+            stats.CurrentStreak = Math.Min(0, stats.CurrentStreak) - 1;
+            stats.LongestLossStreak = Math.Max(stats.LongestLossStreak, -stats.CurrentStreak);
         }
 
-        // Save current card theme
         stats.SelectedCardTheme = CardThemePrefix;
-
-        // Write to JSON file
         StatsSettingsManager.Save(stats);
     }
 
@@ -294,7 +282,6 @@ public class Game
 
             if (result != "")
             {
-                EndGame(result);
                 MessageBox.Show(result);
             }
 
