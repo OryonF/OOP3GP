@@ -6,6 +6,7 @@ namespace Durak
     {
         private static string connectionString = "Data Source=durak.db";
 
+        // Call this at the start of the program to ensure the database and table exist
         public static void Initialize()
         {
             using var connection = new SqliteConnection(connectionString);
@@ -25,6 +26,7 @@ namespace Durak
             command.ExecuteNonQuery();
         }
 
+        // Returns the ID of the newly inserted game record
         public static int InsertGame(DurakDBModel record)
         {
             using var connection = new SqliteConnection(connectionString);
@@ -50,6 +52,7 @@ namespace Durak
             return (int)lastId;
         }
 
+        // Updates the Winner field for a specific game record
         public static void UpdateGameWinner(int gameId, string winner)
         {
             using var connection = new SqliteConnection(connectionString);

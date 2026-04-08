@@ -24,6 +24,7 @@ public class Game
     public List<Card> CurrentRoundDefends { get; private set; } = new List<Card>();
     public Card LastPlayedCard { get; private set; }
 
+    // Creates a new game by setting up the deck and both players.
     public Game()
     {
         deck = new Deck();
@@ -31,6 +32,7 @@ public class Game
         cpu = new ComputerPlayer();
     }
 
+    // Starts the game by setting everything up, deciding who goes first, saving it to the database, and dealing cards to both players.
     public void StartGame()
     {
         StartTime = DateTime.Now;
@@ -66,6 +68,7 @@ public class Game
         }
     }
 
+    // Plays a card (attack or defend), updates the game state and hands, ends the round if needed, and checks if the game is over.
     public string Move(Card card, bool isPlayer = true, bool allowCpuResponse = true)
     {
         if (card == null) return "";
@@ -114,11 +117,15 @@ public class Game
         return CheckEndState();
     }
 
+    // Switches the attacking player at the end of a round.
     public void SwitchAttack()
     {
         PlayerAttack = !PlayerAttack;
     }
 
+    // Handles the logic for when a player chooses to pass.
+    // This can mean either ending the round after a successful
+    // defense or picking up cards after a failed defense.
     public void PlayerPasses()
     {
         if (CurrentRoundAttacks.Count == 0)
@@ -177,6 +184,7 @@ public class Game
             CpuTurn();
     }
 
+    // Draws cards for a player until they have 6 cards or the deck runs out.
     private void DrawUpToSix(Player player)
     {
         while (player.hand.Count < 6 && deck.Cards.Count > 0)
@@ -190,6 +198,7 @@ public class Game
         }
     }
 
+    // Refills both players' hands at the end of a round, with the attacker drawing first.
     public void RefillHands()
     {
         if (PlayerAttack)
@@ -204,11 +213,13 @@ public class Game
         }
     }
 
+    // Switches the current player after a move is made.
     public void SwitchMove()
     {
         PlayerMove = !PlayerMove;
     }
 
+    // Checks if the game has ended by seeing if either player has run out of cards, and returns a message if so.
     public string CheckEndState()
     {
         if (human.hand.Count == 0)
@@ -226,21 +237,22 @@ public class Game
         return "";
     }
 
+    // Handles the CPU's turn by determining if it can attack or defend, making the appropriate move, and ending the round if necessary.
     public void CpuTurn()
     {
+        // Stop immediately if the game is already over
+        if (CheckEndState() != "")
+            return;
+
         bool isCpuAttack = !PlayerAttack;
 
         Card cpuCard = cpu.MakeMove(isCpuAttack, CurrentRoundAttacks, CurrentRoundDefends, LastPlayedCard, TrumpSuit);
 
+        // CPU is able to play a card
         if (cpuCard != null)
         {
-            var result = Move(cpuCard, isPlayer: false, allowCpuResponse: false);
 
-            if (result != "")
-            {
-                MessageBox.Show(result);
-            }
-
+            Move(cpuCard, isPlayer: false, allowCpuResponse: false);
             return;
         }
 
@@ -256,29 +268,26 @@ public class Game
             PlayerMove = PlayerAttack;
             return;
         }
-        else
-        {
-            // CPU stops attacking
-            foreach (var card in CurrentRoundAttacks)
-                deck.DiscardPile.Add(card);
+        
+        // CPU stops attacking
+        foreach (var card in CurrentRoundAttacks)
+            deck.DiscardPile.Add(card);
 
-            foreach (var card in CurrentRoundDefends)
-                deck.DiscardPile.Add(card);
+        foreach (var card in CurrentRoundDefends)
+            deck.DiscardPile.Add(card);
 
-            MoveLogger.LogMove(CurrentGameID, "CPU", "PASS", "End of round");
-            SwitchAttack();
-            ResetRound();
-            RefillHands();
+        MoveLogger.LogMove(CurrentGameID, "CPU", "PASS", "End of round");
+        SwitchAttack();
+        ResetRound();
+        RefillHands();
 
-            PlayerMove = PlayerAttack;
+        PlayerMove = PlayerAttack;
 
-            if (!PlayerMove)
-                CpuTurn();
-
-            return;
-        }
+        if (!PlayerMove)
+            CpuTurn();
     }
 
+    // Handles the logic for when the CPU fails to defend and has to pick up the cards.
     private void CpuPickupCards()
     {
         MoveLogger.LogMove(CurrentGameID, "CPU", "PASS", "End of round");
@@ -296,6 +305,7 @@ public class Game
         }
     }
 
+    // Resets the current round by clearing the attack and defense lists and resetting the last played card.
     public void ResetRound()
     {
         CurrentRoundAttacks.Clear();
@@ -303,6 +313,7 @@ public class Game
         LastPlayedCard = null;
     }
 
+    // Saves the game result to the database if it hasn't already been saved.
     private void SaveGame(string winner)
     {
         if (gameSaved) return;
@@ -311,11 +322,14 @@ public class Game
         gameSaved = true;
     }
 
+    // Determines who goes first by comparing the lowest trump card in each player's hand,
+    // or defaults to the human player if neither has a trump.
     private bool DetermineFirstAttacker()
     {
         Card playerTrump = null;
         Card cpuTrump = null;
 
+        // Find lowest trump card in human hand
         foreach (var card in human.hand)
         {
             if (card.Suit == TrumpSuit)
@@ -325,6 +339,7 @@ public class Game
             }
         }
 
+        // Find lowest trump card in CPU hand
         foreach (var card in cpu.hand)
         {
             if (card.Suit == TrumpSuit)

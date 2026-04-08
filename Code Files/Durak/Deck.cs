@@ -8,6 +8,7 @@ public class Deck
 
     private static readonly string[] Suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
 
+    // Call this at the start of each game to reset the deck
     public void Initialize()
     {
         Cards.Clear();
@@ -20,6 +21,7 @@ public class Deck
         }
     }
 
+    // Shuffle the deck using Fisher-Yates algorithm
     public void Shuffle(List<Card> cards)
     {
         Random rng = new Random();
@@ -33,6 +35,7 @@ public class Deck
         }
     }
 
+    // Draw a card from the top of the deck
     public Card Draw()
     {
         if (Cards.Count == 0) return null;
@@ -41,6 +44,7 @@ public class Deck
         return top;
     }
 
+    // Add a card to the discard pile
     public Card GetBottomCard()
     {
         if (Cards.Count == 0) return null;
