@@ -2,7 +2,11 @@
 
 Course project for OOP3.
 
-Playing card assets via: https://github.com/hanhaechi/playing-cards
+Playing card assets via: https://github.com/hanhaechi/playing-cards (used for Classic and Inverted Colour themes)
+
+Silly themed cards will be created by our own team members
+
+Libraries used: Json.JsonSerializer, Microsoft.Data.Sqlite
 
 ## Chosen game: 2 player Durak
 
@@ -20,7 +24,7 @@ Durak is a Russian card game where the objective is to be the first to empty one
 - - the same suit as the attacking card with a higher value
 - - a card of the trump suit with any value
 - If the attacker plays a card of the trump suit, the defender can only defend with a trump suit card with a higher value
-- On a successful defense, the attacker may declare a new attack if they can play a card of the same value as any attacking card previously played in the given round.
+- On a successful defense, the attacker may declare a new attack if they can play a card of the same value as any card previously played in the given round.
 - There can be up to 6 attacks per round
 - If the defending player does not play a defending card, they must add all cards played during the attack to their hand, and the attacking player goes again.
 - If the attacking player does not play a new attacking card, all cards played during the attack go to a discard pile and the defender will attack next turn

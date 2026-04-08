@@ -5,25 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Durak"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="470" Width="800">
     <Grid>
         <!-- Labels -->
-        <Label x:Name="TrumpSuitLabel" Content="Trump Suit:" HorizontalAlignment="Left" Margin="29,45,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CardsRemainingLabel" Content="Cards Remaining:" HorizontalAlignment="Left" Margin="29,76,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TrumpSuitValueLabel" Content="text here" HorizontalAlignment="Left" Margin="104,45,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CardsRemainingValueLabel" Content="number here" HorizontalAlignment="Left" Margin="136,76,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="PlayerHandLabel" Content="Player Hand:" HorizontalAlignment="Left" Margin="30,169,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="PlayerStatusLabel" Content="Player is currently:" HorizontalAlignment="Left" Margin="29,107,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="PlayerStatusValueLabel" Content="text here" HorizontalAlignment="Left" Margin="140,107,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CpuHandLabel" Content="CPU Hand:" HorizontalAlignment="Left" Margin="30,138,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="CpuHandValueLabel" Content="number here" HorizontalAlignment="Left" Margin="102,138,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="PlayerHandValueLabel" Content="number here" HorizontalAlignment="Left" Margin="111,169,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_TrumpSuitLabel" Content="Trump Suit:" HorizontalAlignment="Left" Margin="15,14,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_CardsRemainingLabel" Content="Cards Remaining:" HorizontalAlignment="Left" Margin="15,45,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_TrumpSuitValueLabel" Content="text here" HorizontalAlignment="Left" Margin="90,14,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_CardsRemainingValueLabel" Content="number here" HorizontalAlignment="Left" Margin="122,45,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_PlayerHandLabel" Content="Player Hand:" HorizontalAlignment="Left" Margin="16,138,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_PlayerStatusLabel" Content="Player is currently:" HorizontalAlignment="Left" Margin="15,76,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_PlayerStatusValueLabel" Content="text here" HorizontalAlignment="Left" Margin="126,76,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_CpuHandLabel" Content="CPU Hand:" HorizontalAlignment="Left" Margin="16,107,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_CpuHandValueLabel" Content="number here" HorizontalAlignment="Left" Margin="88,107,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Main_PlayerHandValueLabel" Content="number here" HorizontalAlignment="Left" Margin="97,138,0,0" VerticalAlignment="Top"/>
 
         <!-- ListBox -->
-        <ListBox x:Name="PlayerHandListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="31,200,603,76"/>
+        <ListBox x:Name="Main_PlayerHandListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="17,169,617,136" SelectionChanged="Main_PlayerHandListBox_SelectionChanged"/>
 
         <!-- Buttons -->
-        <Button x:Name="UseCardButton" Content="Use Selected Card" HorizontalAlignment="Left" Margin="31,363,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="PassButton" Content="Pass" HorizontalAlignment="Left" Margin="170,363,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Main_UseCardButton" Content="Use Selected Card" HorizontalAlignment="Left" Margin="17,332,0,0" VerticalAlignment="Top" Click="Main_UseCardButton_Click"/>
+        <Button x:Name="Main_PassButton" Content="Pass" HorizontalAlignment="Left" Margin="156,332,0,0" VerticalAlignment="Top" Click="Main_PassButton_Click"/>
+        <Button x:Name="Main_RulesButton" Content="Game Rules" HorizontalAlignment="Left" Margin="16,373,0,0" VerticalAlignment="Top" Click="Main_RulesButton_Click"/>
+        <Button x:Name="Main_StatsSettingsButton" Content="Stats &amp; Settings" HorizontalAlignment="Left" Margin="95,373,0,0" VerticalAlignment="Top" Click="Main_StatsSettingsButton_Click"/>
+        <Button x:Name="Main_PlayAgainButton" Content="Play Again" HorizontalAlignment="Left" Visibility="Collapsed" Margin="466,404,0,0" VerticalAlignment="Top" Click="Main_PlayAgainButton_Click"/>
+
+        <!-- CPU Played Cards -->
+        <Image x:Name="Main_CPUPlayedCard1" HorizontalAlignment="Left" Height="125" Margin="221,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_CPUPlayedCard2" HorizontalAlignment="Left" Height="125" Margin="315,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_CPUPlayedCard3" HorizontalAlignment="Left" Height="125" Margin="409,75,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_CPUPlayedCard4" HorizontalAlignment="Left" Height="125" Margin="503,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_CPUPlayedCard5" HorizontalAlignment="Left" Height="125" Margin="597,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_CPUPlayedCard6" HorizontalAlignment="Left" Height="125" Margin="691,76,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+
+        <!-- Player Played Cards -->
+        <Image x:Name="Main_PlayerPlayedCard1" HorizontalAlignment="Left" Height="125" Margin="221,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_PlayerPlayedCard2" HorizontalAlignment="Left" Height="125" Margin="315,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_PlayerPlayedCard3" HorizontalAlignment="Left" Height="125" Margin="409,226,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_PlayerPlayedCard4" HorizontalAlignment="Left" Height="125" Margin="503,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_PlayerPlayedCard5" HorizontalAlignment="Left" Height="125" Margin="597,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Image x:Name="Main_PlayerPlayedCard6" HorizontalAlignment="Left" Height="125" Margin="691,227,0,0" VerticalAlignment="Top" Width="90" Source="/empty.png">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+
+        <!-- Played Card Labels -->
+        <Label Content="CPU" HorizontalAlignment="Left" Margin="479,40,0,0" VerticalAlignment="Top"/>
+        <Label Content="YOU" HorizontalAlignment="Left" Margin="479,370,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
