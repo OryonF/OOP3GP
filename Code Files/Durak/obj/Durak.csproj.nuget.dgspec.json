@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {}
+    "C:\\Users\\oface\\source\\repos\\OryonF\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {
+    "C:\\Users\\oface\\source\\repos\\OryonF\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+        "projectUniqueName": "C:\\Users\\oface\\source\\repos\\OryonF\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
         "projectName": "Durak",
-        "projectPath": "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
-        "packagesPath": "C:\\Users\\mtthw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\obj\\",
+        "projectPath": "C:\\Users\\oface\\source\\repos\\OryonF\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+        "packagesPath": "C:\\Users\\oface\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\oface\\source\\repos\\OryonF\\OOP3GP\\Code Files\\Durak\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\mtthw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\oface\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,10 +26,12 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0-windows7.0": {
+          "net8.0-windows": {
+            "framework": "net8.0-windows7.0",
             "targetAlias": "net8.0-windows",
             "projectReferences": {}
           }
@@ -40,10 +46,11 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
-        "net8.0-windows7.0": {
+        "net8.0-windows": {
+          "framework": "net8.0-windows7.0",
           "targetAlias": "net8.0-windows",
           "dependencies": {
             "Microsoft.Data.Sqlite": {
@@ -70,7 +77,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
