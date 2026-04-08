@@ -6,6 +6,7 @@ using System.Windows;
 
 public class Game
 {
+
     public Deck deck;
     public Player human;
     public ComputerPlayer cpu;
@@ -22,7 +23,10 @@ public class Game
 
     public List<Card> CurrentRoundAttacks { get; private set; } = new List<Card>();
     public List<Card> CurrentRoundDefends { get; private set; } = new List<Card>();
-    public Card LastPlayedCard { get; private set; }
+    public Card? LastPlayedCard { get; private set; }
+
+    private StatsSettingsData stats;
+    //private GameLog currentlog;(Will be implemented later)
 
     // Creates a new game by setting up the deck and both players.
     public Game()
@@ -30,6 +34,8 @@ public class Game
         deck = new Deck();
         human = new Player();
         cpu = new ComputerPlayer();
+
+        stats = StatsSettingsManager.Load();
     }
 
     // Starts the game by setting everything up, deciding who goes first, saving it to the database, and dealing cards to both players.
@@ -77,26 +83,31 @@ public class Game
 
         bool isAttack = (PlayerMove && PlayerAttack) || (!PlayerMove && !PlayerAttack);
 
-        // Add to current round
         if (isAttack)
         {
+            if (CurrentRoundAttacks.Count >= 6)
+                return "";
+
             CurrentRoundAttacks.Add(card);
-            MoveLogger.LogMove(CurrentGameID, isPlayer ? "HUMAN" : "CPU", "ATTACK", card.ToString());
         }
         else
         {
             CurrentRoundDefends.Add(card);
-            MoveLogger.LogMove(CurrentGameID, isPlayer ? "HUMAN" : "CPU", "DEFEND", card.ToString());
         }
 
-        // Remove card from hand
-        if (isPlayer) human.RemoveCard(card);
-        else cpu.RemoveCard(card);
-
+        if (isPlayer)
+        {
+            human.RemoveCard(card);
+        }
+        else
+        { cpu.RemoveCard(card); }
         SwitchMove();
 
+
         // Max 6 resolved → end round
-        if (!isAttack && CurrentRoundAttacks.Count == 6 && CurrentRoundDefends.Count == 6)
+        if (!isAttack &&
+            CurrentRoundAttacks.Count == 6 &&
+            CurrentRoundDefends.Count == 6)
         {
             MoveLogger.LogMove(CurrentGameID,
                 PlayerAttack ? "HUMAN" : "CPU",
@@ -114,8 +125,41 @@ public class Game
             if (!PlayerMove && allowCpuResponse) CpuTurn();
         }
 
-        return CheckEndState();
+        string result = CheckEndState();
+
+        if (result != "")
+            EndGame(result);
+        
+
+        return result;
     }
+
+    private bool statsSaved = false; // new field
+
+    private void EndGame(string result)
+    {
+        if (statsSaved) return; // only update stats once
+        statsSaved = true;
+
+        stats.TotalGames++;
+
+        if (result == "You won!")
+        {
+            stats.Wins++;
+            stats.CurrentStreak = Math.Max(0, stats.CurrentStreak) + 1;
+            stats.LongestWinStreak = Math.Max(stats.LongestWinStreak, stats.CurrentStreak);
+        }
+        else if (result == "CPU won!")
+        {
+            stats.Losses++;
+            stats.CurrentStreak = Math.Min(0, stats.CurrentStreak) - 1;
+            stats.LongestLossStreak = Math.Max(stats.LongestLossStreak, -stats.CurrentStreak);
+        }
+
+        stats.SelectedCardTheme = CardThemePrefix;
+        StatsSettingsManager.Save(stats);
+    }
+
 
     // Switches the attacking player at the end of a round.
     public void SwitchAttack()
@@ -326,8 +370,8 @@ public class Game
     // or defaults to the human player if neither has a trump.
     private bool DetermineFirstAttacker()
     {
-        Card playerTrump = null;
-        Card cpuTrump = null;
+        Card? playerTrump = null;
+        Card? cpuTrump = null;
 
         // Find lowest trump card in human hand
         foreach (var card in human.hand)

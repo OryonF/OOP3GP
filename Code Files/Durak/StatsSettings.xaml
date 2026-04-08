@@ -8,12 +8,23 @@
         Title="StatsSettings" Height="450" Width="800">
     <Grid>
         <!-- Stats Labels -->
-        <Label x:Name="StatSet_GamesPlayedLabel" Content="Games Played: " HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_PlayerWinsLabel" Content="Player Wins: " HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_CpuWinsLabel" Content="CPU Wins: " HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_GamesPlayedValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="105,36,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_PlayerWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="92,67,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_CpuWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="83,98,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_PlayerName" Content="Player Name:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top"/>
+
+        <Label x:Name="StatSet_GamesPlayedLabel" Content="Games Played: " HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_PlayerWinsLabel" Content="Player Wins: " HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_CpuWinsLabel" Content="CPU Wins: " HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_GamesPlayedValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="92,56,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_PlayerWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="78,82,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_CpuWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="78,113,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_CurrentStreakLabel" Content="Current Streak: " HorizontalAlignment="Left" Margin="242,87,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_CurrentStreakValueLabel" Content="read number from json" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_LongestWinStreakLabel" Content="Longest Win Streak: " HorizontalAlignment="Left" Margin="242,56,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_LongestWinStreakValueLabel" Content="read number from json " HorizontalAlignment="Left" Margin="367,56,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_LongestLossStreakLabel" Content="Longest Loss Streak: " HorizontalAlignment="Left" Margin="242,25,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_LongestLossStreakValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="362,25,0,0" VerticalAlignment="Top"/>
+
+        <!-- Player Name TextBox -->
+        <TextBox x:Name="StatSet_PlayerNameTextBox" ToolTip="Enter your desired name." HorizontalAlignment="Right" Margin="0,29,576,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
         <!-- Card Theme Images -->
         <Image x:Name="StatSet_NormalThemeImage" HorizontalAlignment="Left" Height="125" Margin="174,185,0,0" VerticalAlignment="Top" Width="90" Source="/n_spades_A.png">
@@ -63,6 +74,9 @@
         <!-- Buttons -->
         <Button x:Name="StatSet_ExitWithoutSavingButton" Content="_Return to game without saving" HorizontalAlignment="Left" Margin="218,387,0,0" VerticalAlignment="Top" IsCancel="True" TabIndex="3" Click="StatSet_ExitWithoutSavingButton_Click"/>
         <Button x:Name="StatSet_SaveAndExitButton" Content="_Close and save settings" HorizontalAlignment="Left" Margin="446,387,0,0" VerticalAlignment="Top" IsDefault="True" TabIndex="4" Click="StatSet_SaveAndExitButton_Click"/>
-        <Button x:Name="StatSet_ViewGameHistoryButton" Content="View Game History" HorizontalAlignment="Left" Margin="15,139,0,0" VerticalAlignment="Top" Click="StatSet_ViewGameHistoryButton_Click"/>
+        <Button x:Name="StatSet_ViewGameHistoryButton" Content="View Game History" HorizontalAlignment="Left" Margin="8,315,0,0" VerticalAlignment="Top" Click="StatSet_ViewGameHistoryButton_Click"/>
+        <Button x:Name="StatSet_ResetStats" ToolTip="Click to reset player statistics." Content="Reset Stats" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top" Width="101" Click="StatSet_ResetStats_Click"/>
+
+
     </Grid>
 </Window>

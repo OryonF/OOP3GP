@@ -1,6 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Reflection;
+using System.Security.AccessControl;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Imaging;
 
@@ -9,11 +13,18 @@ namespace Durak
     public partial class MainWindow : Window
     {
         private Game game;
+        private string playerName = "";
+        private StatsSettingsData stats;
 
         public MainWindow()
         {
             InitializeComponent();
             Database.Initialize();
+
+            //load player stats
+            stats = StatsSettingsManager.Load();
+            Main_PlayerNameLabel.Content = $"Player {playerName}";
+            
             game = new Game();
             game.StartGame();
             UpdateUI();
@@ -91,7 +102,7 @@ namespace Durak
             // Update Player slots
             for (int i = 0; i < playerSlots.Length; i++)
             {
-                Card cardToShow = null;
+                Card? cardToShow = null;
 
                 if (game.PlayerAttack)
                 {
@@ -130,7 +141,7 @@ namespace Durak
             // or an empty placeholder if no card is present.
             for (int i = 0; i < cpuSlots.Length; i++)
             {
-                Card cardToShow = null;
+                Card? cardToShow = null;
 
                 if (game.PlayerAttack)
                 {
@@ -232,6 +243,13 @@ namespace Durak
             StatsSettings statSetWindow = new StatsSettings(game);
             statSetWindow.Owner = this;
             statSetWindow.ShowDialog();
+
+            // Get player name from StatsSettings player name textbox.
+            playerName = string.IsNullOrWhiteSpace(statSetWindow.StatSet_PlayerNameTextBox.Text)
+                        ? ""
+                        : statSetWindow.StatSet_PlayerNameTextBox.Text;
+            Main_PlayerNameLabel.Content = $"Player: {playerName}";
+
             UpdateUI();
         }
 
