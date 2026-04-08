@@ -16,9 +16,9 @@
         <Label x:Name="StatSet_GamesPlayedValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="92,56,0,0" VerticalAlignment="Top"/>
         <Label x:Name="StatSet_PlayerWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="78,82,0,0" VerticalAlignment="Top"/>
         <Label x:Name="StatSet_CpuWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="78,113,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_CurrentStreakLabel" Content="Current Streak: " HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_CurrentStreakValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="92,139,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_LongestWinStreakLabel" Content="Longest Win Streak: " HorizontalAlignment="Left" Margin="244,56,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_CurrentStreakLabel" Content="Current Streak: " HorizontalAlignment="Left" Margin="242,87,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_CurrentStreakValueLabel" Content="read number from json" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="StatSet_LongestWinStreakLabel" Content="Longest Win Streak: " HorizontalAlignment="Left" Margin="242,56,0,0" VerticalAlignment="Top"/>
         <Label x:Name="StatSet_LongestWinStreakValueLabel" Content="read number from json " HorizontalAlignment="Left" Margin="367,56,0,0" VerticalAlignment="Top"/>
         <Label x:Name="StatSet_LongestLossStreakLabel" Content="Longest Loss Streak: " HorizontalAlignment="Left" Margin="242,25,0,0" VerticalAlignment="Top"/>
         <Label x:Name="StatSet_LongestLossStreakValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="362,25,0,0" VerticalAlignment="Top"/>

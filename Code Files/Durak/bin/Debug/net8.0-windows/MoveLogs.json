@@ -399,5 +399,19 @@
     "HUMAN PASS End of round",
     "CPU PASS End of round",
     "HUMAN PASS End of round"
+  ],
+  "10": [
+    "HUMAN DRAW 9 of Hearts",
+    "CPU DRAW Queen of Diamonds",
+    "HUMAN DRAW 7 of Diamonds",
+    "CPU DRAW 6 of Spades",
+    "HUMAN DRAW 8 of Diamonds",
+    "CPU DRAW 10 of Clubs",
+    "HUMAN DRAW Queen of Spades",
+    "CPU DRAW Queen of Hearts",
+    "HUMAN DRAW Ace of Clubs",
+    "CPU DRAW Jack of Spades",
+    "HUMAN DRAW 9 of Spades",
+    "CPU DRAW King of Hearts"
   ]
 }

@@ -157,8 +157,6 @@ C:\Users\mtthw\Desktop\New folder (2)\OOP3GP\Code Files\Durak\obj\Debug\net8.0-w
 C:\Users\mtthw\Desktop\New folder (2)\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\Durak.genruntimeconfig.cache
 C:\Users\mtthw\Desktop\New folder (2)\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\ref\Durak.dll
 C:\Users\lukas\Source\Repos\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\Durak.csproj.AssemblyReference.cache
-C:\Users\lukas\Source\Repos\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\GameHistory.baml
-C:\Users\lukas\Source\Repos\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\MoveLogWindow.baml
 C:\Users\lukas\Source\Repos\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\GameHistory.g.cs
 C:\Users\lukas\Source\Repos\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\GameRules.g.cs
 C:\Users\lukas\Source\Repos\OOP3GP\Code Files\Durak\obj\Debug\net8.0-windows\MainWindow.g.cs
