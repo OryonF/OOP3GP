@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {}
+    "C:\\Users\\mtthw\\Desktop\\New folder (3)\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {
+    "C:\\Users\\mtthw\\Desktop\\New folder (3)\\OOP3GP\\Code Files\\Durak\\Durak.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+        "projectUniqueName": "C:\\Users\\mtthw\\Desktop\\New folder (3)\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
         "projectName": "Durak",
-        "projectPath": "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
+        "projectPath": "C:\\Users\\mtthw\\Desktop\\New folder (3)\\OOP3GP\\Code Files\\Durak\\Durak.csproj",
         "packagesPath": "C:\\Users\\mtthw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mtthw\\Desktop\\New folder (2)\\OOP3GP\\Code Files\\Durak\\obj\\",
+        "outputPath": "C:\\Users\\mtthw\\Desktop\\New folder (3)\\OOP3GP\\Code Files\\Durak\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mtthw\\AppData\\Roaming\\NuGet\\NuGet.Config",
