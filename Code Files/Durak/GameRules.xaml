@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Durak"
         mc:Ignorable="d"
-        Title="GameRules" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="Rules_RulesTextBox" Margin="10,0,10,52"
+        Title="Game Rules"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
+
+    <Viewbox Stretch="Uniform">
+        <Grid Width="800" Height="450">
+            <TextBox x:Name="Rules_RulesTextBox" Margin="10,0,10,52"
          FontSize="14"
          TextWrapping="Wrap"
          IsReadOnly="True"
@@ -45,7 +49,8 @@ End of game
 
     • The first player to empty their hand wins immediately. The other player is the "Durak" (fool)
 </TextBox>
-        <Button x:Name="Rules_ExitButton" Content="_Close and return to game" HorizontalAlignment="Center" Margin="0,387,0,0" VerticalAlignment="Top" TabIndex="0" IsCancel="True" IsDefault="True" Click="Rules_ExitButton_Click"/>
+            <Button x:Name="Rules_ExitButton" Content="_Close and return to game" HorizontalAlignment="Center" Margin="0,387,0,0" VerticalAlignment="Top" TabIndex="0" IsCancel="True" IsDefault="True" Click="Rules_ExitButton_Click"/>
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Window>
