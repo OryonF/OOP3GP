@@ -208,7 +208,18 @@ namespace Durak
         private void Main_UseCardButton_Click(object sender, RoutedEventArgs e)
         {
             int index = Main_PlayerHandListBox.SelectedIndex;
-            if (index < 0) return;
+
+            // Improved validation
+            if (index < 0)
+            {
+                MessageBox.Show("Please select a card before playing.");
+                Console.WriteLine("Use Card clicked without selection");
+                return;
+            }
+
+            // Debug logs
+            Console.WriteLine("Use Card button clicked");
+            Console.WriteLine("Selected index: " + index);
 
             // Get selected card
             var selectedCard = game.human.hand[index];
@@ -223,23 +234,27 @@ namespace Durak
                 UpdateUI();
                 return;
             }
+
             while (!game.PlayerMove && game.CheckEndState() == "")
             {
                 game.CpuTurn();
             }
-            // Refresh all UI (buttons will enable/disable based on PlayerMove)
+
             string endResult = game.CheckEndState();
             if (endResult != "")
             {
                 MessageBox.Show(endResult);
                 Main_PlayAgainButton.Visibility = Visibility.Visible;
             }
+
             UpdateUI();
         }
 
         // Handles the pass action, checks if the game ended (and shows the result), then updates the UI.
         private void Main_PassButton_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("Pass button clicked"); // debug log
+
             game.PlayerPasses();
 
             string endResult = game.CheckEndState();
