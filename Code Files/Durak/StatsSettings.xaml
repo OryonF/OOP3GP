@@ -5,78 +5,192 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Durak"
         mc:Ignorable="d"
-        Title="StatsSettings" Height="450" Width="800">
-    <Grid>
-        <!-- Stats Labels -->
-        <Label x:Name="StatSet_PlayerName" Content="Player Name:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top"/>
+        Title="Stats And Settings"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize">
 
-        <Label x:Name="StatSet_GamesPlayedLabel" Content="Games Completed: " HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_PlayerWinsLabel" Content="Player Wins: " HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_CpuWinsLabel" Content="CPU Wins: " HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_GamesPlayedValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="116,56,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_PlayerWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="78,82,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_CpuWinsValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="78,113,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_CurrentStreakLabel" Content="Current Streak: " HorizontalAlignment="Left" Margin="242,87,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_CurrentStreakValueLabel" Content="read number from json" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_LongestWinStreakLabel" Content="Longest Win Streak: " HorizontalAlignment="Left" Margin="242,56,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_LongestWinStreakValueLabel" Content="read number from json " HorizontalAlignment="Left" Margin="367,56,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_LongestLossStreakLabel" Content="Longest Loss Streak: " HorizontalAlignment="Left" Margin="242,25,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="StatSet_LongestLossStreakValueLabel" Content="read number from json" HorizontalAlignment="Left" Margin="362,25,0,0" VerticalAlignment="Top"/>
+    <!--WIndow Background Colour-->
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#1E3A2F" Offset="0"/>
+            <GradientStop Color="#0F241C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
 
-        <!-- Player Name TextBox -->
-        <TextBox x:Name="StatSet_PlayerNameTextBox" ToolTip="Enter your desired name (Default: Joker)" HorizontalAlignment="Right" Margin="0,29,576,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    <Window.Resources>
+        
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#F0F0F0"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
 
-        <!-- Card Theme Images -->
-        <Image x:Name="StatSet_NormalThemeImage" HorizontalAlignment="Left" Height="125" Margin="174,185,0,0" VerticalAlignment="Top" Width="90" Source="/n_spades_A.png">
-            <Image.Effect>
-                <DropShadowEffect/>
-            </Image.Effect>
-        </Image>
-        <Image x:Name="StatSet_InvertedThemeImage" HorizontalAlignment="Left" Height="125" Margin="536,185,0,0" VerticalAlignment="Top" Width="90" Source="/s_spades_A.png">
-            <Image.Effect>
-                <DropShadowEffect/>
-            </Image.Effect>
-        </Image>
-        <Image x:Name="StatSet_SillyThemeImage" HorizontalAlignment="Center" Height="125" Margin="0,185,0,0" VerticalAlignment="Top" Width="90" Source="/i_spades_A.png">
-            <Image.Effect>
-                <DropShadowEffect/>
-            </Image.Effect>
-        </Image>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#2A2A2A"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#555"/>
+        </Style>
+    </Window.Resources>
 
-        <!-- Radio Buttons -->
-        <RadioButton x:Name="StatSet_NormalThemeRadioButton"
-                     Content="_Normal"
-                     GroupName="CardThemeGroup"
-                     HorizontalAlignment="Left"
-                     Margin="189,327,0,0"
-                     VerticalAlignment="Top"
-                     TabIndex="0" Checked="StatSet_NormalThemeRadioButton_Checked"/>
-
-        <RadioButton x:Name="StatSet_InvertedThemeRadioButton"
-                     Content="_Inverted"
-                     GroupName="CardThemeGroup"
-                     HorizontalAlignment="Center"
-                     Margin="0,327,0,0"
-                     VerticalAlignment="Top"
-                     TabIndex="1" Checked="StatSet_InvertedThemeRadioButton_Checked"/>
-
-        <RadioButton x:Name="StatSet_SillyThemeRadioButton"
-                     Content="_Silly"
-                     GroupName="CardThemeGroup"
-                     HorizontalAlignment="Left"
-                     Margin="561,327,0,0"
-                     VerticalAlignment="Top"
-                     TabIndex="2" Checked="StatSet_SillyThemeRadioButton_Checked"/>
-
-        <!-- Section Label -->
-        <Label x:Name="StatSet_CardThemesLabel" Content="Card Themes" HorizontalAlignment="Center" Margin="0,126,0,0" VerticalAlignment="Top"/>
-
-        <!-- Buttons -->
-        <Button x:Name="StatSet_ExitWithoutSavingButton" Content="_Return to game without saving" HorizontalAlignment="Left" Margin="218,387,0,0" VerticalAlignment="Top" IsCancel="True" TabIndex="3" Click="StatSet_ExitWithoutSavingButton_Click"/>
-        <Button x:Name="StatSet_SaveAndExitButton" Content="_Close and save settings" HorizontalAlignment="Left" Margin="446,387,0,0" VerticalAlignment="Top" IsDefault="True" TabIndex="4" Click="StatSet_SaveAndExitButton_Click"/>
-        <Button x:Name="StatSet_ViewGameHistoryButton" Content="View Game History" HorizontalAlignment="Left" Margin="8,315,0,0" VerticalAlignment="Top" Click="StatSet_ViewGameHistoryButton_Click"/>
-        <Button x:Name="StatSet_ResetStats" ToolTip="Click to reset player statistics and settings." Content="Reset Stats and Settings" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="134" Click="StatSet_ResetStats_Click"/>
+    <Viewbox Stretch="Uniform" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid Width="800" Height="470">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#1E3A2F" Offset="0"/>
+                    <GradientStop Color="#0F241C" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
 
 
-    </Grid>
+            <!-- Player Stats -->
+            <Grid Margin="10,10,10,0" VerticalAlignment="Top">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="170"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <!-- Player Name, Games Played, Player Wins, CPU Wins -->
+                <Label Content="Player Name:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                <TextBox x:Name="StatSet_PlayerNameTextBox"
+                         Grid.Row="0" Grid.Column="1"
+                         Width="100"
+                         VerticalAlignment="Center"
+                         ToolTip="Enter your desired name (Default: Joker)"/>
+
+                <Label x:Name="StatSet_GamesPlayedLabel" Content="Games Completed:"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                <Label x:Name="StatSet_GamesPlayedValueLabel" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+
+                <Label x:Name="StatSet_PlayerWinsLabel" Content="Player Wins:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                <Label x:Name="StatSet_PlayerWinsValueLabel" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
+
+                <Label x:Name="StatSet_CpuWinsLabel" Content="CPU Wins:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                <Label x:Name="StatSet_CpuWinsValueLabel" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+
+                <!-- Los Streak, Win Streak, Current Streak -->
+                <Label x:Name="StatSet_LongestLossStreakLabel" Content="Longest Loss Streak:" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"/>
+                <Label x:Name="StatSet_LongestLossStreakValueLabel" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"/>
+
+                <Label x:Name="StatSet_LongestWinStreakLabel" Content="Longest Win Streak:" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
+                <Label x:Name="StatSet_LongestWinStreakValueLabel" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center"/>
+
+                <Label x:Name="StatSet_CurrentStreakLabel" Content="Current Streak:" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center"/>
+                <Label x:Name="StatSet_CurrentStreakValueLabel" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center"/>
+
+            </Grid>
+
+            <!-- Reset Button -->
+            <Button x:Name="StatSet_ResetStats"
+                    Content="Reset Stats and Settings"
+                    ToolTip="Click to reset all player stats."
+                    Width="160"
+                    Margin="10,140,0,0"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Click="StatSet_ResetStats_Click"/>
+
+            <!-- Card Themes -->
+            <Label x:Name="StatSet_CardThemesLabel"
+                   Content="Card Themes"
+                   HorizontalAlignment="Center"
+                   Margin="0,160,0,0"
+                   VerticalAlignment="Top"/>
+
+            <!-- Images -->
+            <Image x:Name="StatSet_NormalThemeImage"
+                   Width="90" Height="125"
+                   Margin="180,190,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Source="/n_spades_A.png">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+
+            <Image x:Name="StatSet_SillyThemeImage"
+                   Width="90" Height="125"
+                   Margin="355,190,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Source="/i_spades_A.png">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+
+            <Image x:Name="StatSet_InvertedThemeImage"
+                   Width="90" Height="125"
+                   Margin="530,190,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Source="/s_spades_A.png">
+                <Image.Effect>
+                    <DropShadowEffect/>
+                </Image.Effect>
+            </Image>
+
+            <!-- Radio Buttons -->
+            <RadioButton x:Name="StatSet_NormalThemeRadioButton"
+                         Content="_Normal"
+                         GroupName="CardThemeGroup"
+                         Margin="195,320,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Checked="StatSet_NormalThemeRadioButton_Checked"/>
+
+            <RadioButton x:Name="StatSet_SillyThemeRadioButton"
+                         Content="_Silly"
+                         GroupName="CardThemeGroup"
+                         Margin="370,320,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Checked="StatSet_SillyThemeRadioButton_Checked"/>
+
+            <RadioButton x:Name="StatSet_InvertedThemeRadioButton"
+                         Content="_Inverted"
+                         GroupName="CardThemeGroup"
+                         Margin="545,320,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Checked="StatSet_InvertedThemeRadioButton_Checked"/>
+
+            <!-- Bottom Buttons -->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,0,10">
+
+                <Button x:Name="StatSet_ViewGameHistoryButton"
+                        Content="View Game History"
+                        ToolTip="Clcik to view previous game history."
+                        Margin="5"
+                        Click="StatSet_ViewGameHistoryButton_Click"/>
+
+                <Button x:Name="StatSet_ExitWithoutSavingButton"
+                        Content="_Return without saving"
+                        ToolTip="Returns to the game without saving selected player stats."
+                        Margin="5"
+                        IsCancel="True"
+                        Click="StatSet_ExitWithoutSavingButton_Click"/>
+
+                <Button x:Name="StatSet_SaveAndExitButton"
+                        Content="_Save and Exit"
+                        ToolTip="Click to save selected player stats, and return to game with selected stats."
+                        Margin="5"
+                        IsDefault="True"
+                        Click="StatSet_SaveAndExitButton_Click"/>
+
+            </StackPanel>
+        </Grid>
+    </Viewbox>
 </Window>
