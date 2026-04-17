@@ -5,11 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Durak"
         mc:Ignorable="d"
-        Title="Stats And Settings" 
+        Title="Stats And Settings"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResize">
-    
+
+    <!--WIndow Background Colour-->
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#1E3A2F" Offset="0"/>
+            <GradientStop Color="#0F241C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
     <Window.Resources>
+        
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="#F0F0F0"/>
             <Setter Property="FontSize" Value="14"/>
@@ -22,17 +31,17 @@
         </Style>
     </Window.Resources>
 
-    <Viewbox Stretch="Uniform">
-        <Grid Width="800" Height="450" Margin="10">
+    <Viewbox Stretch="Uniform" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid Width="800" Height="470">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#1E3A2F" Offset="0"/>
                     <GradientStop Color="#0F241C" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            
-            
-            <!-- STATS SECTION -->
+
+
+            <!-- Player Stats -->
             <Grid Margin="10,10,10,0" VerticalAlignment="Top">
 
                 <Grid.ColumnDefinitions>
@@ -50,7 +59,7 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
 
-                <!-- LEFT SIDE -->
+                <!-- Player Name, Games Played, Player Wins, CPU Wins -->
                 <Label Content="Player Name:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
                 <TextBox x:Name="StatSet_PlayerNameTextBox"
                          Grid.Row="0" Grid.Column="1"
@@ -58,7 +67,7 @@
                          VerticalAlignment="Center"
                          ToolTip="Enter your desired name (Default: Joker)"/>
 
-                <Label x:Name="StatSet_GamesPlayedLabel" Content="Games Completed:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                <Label x:Name="StatSet_GamesPlayedLabel" Content="Games Completed:"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
                 <Label x:Name="StatSet_GamesPlayedValueLabel" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
 
                 <Label x:Name="StatSet_PlayerWinsLabel" Content="Player Wins:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
@@ -67,7 +76,7 @@
                 <Label x:Name="StatSet_CpuWinsLabel" Content="CPU Wins:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
                 <Label x:Name="StatSet_CpuWinsValueLabel" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
 
-                <!-- RIGHT SIDE -->
+                <!-- Los Streak, Win Streak, Current Streak -->
                 <Label x:Name="StatSet_LongestLossStreakLabel" Content="Longest Loss Streak:" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"/>
                 <Label x:Name="StatSet_LongestLossStreakValueLabel" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center"/>
 
@@ -79,16 +88,17 @@
 
             </Grid>
 
-            <!-- RESET BUTTON -->
+            <!-- Reset Button -->
             <Button x:Name="StatSet_ResetStats"
                     Content="Reset Stats and Settings"
+                    ToolTip="Click to reset all player stats."
                     Width="160"
                     Margin="10,140,0,0"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                     Click="StatSet_ResetStats_Click"/>
 
-            <!-- CARD THEMES -->
+            <!-- Card Themes -->
             <Label x:Name="StatSet_CardThemesLabel"
                    Content="Card Themes"
                    HorizontalAlignment="Center"
@@ -154,7 +164,7 @@
                          VerticalAlignment="Top"
                          Checked="StatSet_InvertedThemeRadioButton_Checked"/>
 
-            <!-- BOTTOM BUTTONS -->
+            <!-- Bottom Buttons -->
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom"
@@ -162,17 +172,20 @@
 
                 <Button x:Name="StatSet_ViewGameHistoryButton"
                         Content="View Game History"
+                        ToolTip="Clcik to view previous game history."
                         Margin="5"
                         Click="StatSet_ViewGameHistoryButton_Click"/>
 
                 <Button x:Name="StatSet_ExitWithoutSavingButton"
                         Content="_Return without saving"
+                        ToolTip="Returns to the game without saving selected player stats."
                         Margin="5"
                         IsCancel="True"
                         Click="StatSet_ExitWithoutSavingButton_Click"/>
 
                 <Button x:Name="StatSet_SaveAndExitButton"
                         Content="_Save and Exit"
+                        ToolTip="Click to save selected player stats, and return to game with selected stats."
                         Margin="5"
                         IsDefault="True"
                         Click="StatSet_SaveAndExitButton_Click"/>
