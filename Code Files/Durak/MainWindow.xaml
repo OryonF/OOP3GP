@@ -84,7 +84,7 @@
             <!-- Buttons -->
             <Button x:Name="Main_UseCardButton" Content="Use Selected Card" HorizontalAlignment="Left" Margin="17,332,0,0" VerticalAlignment="Top" Click="Main_UseCardButton_Click"/>
             <Button x:Name="Main_PassButton" Content="Pass" HorizontalAlignment="Left" Margin="156,332,0,0" VerticalAlignment="Top" Click="Main_PassButton_Click"/>
-            <Button x:Name="Main_RulesButton" Content="Game Rules" HorizontalAlignment="Left" Margin="16,373,0,0" VerticalAlignment="Top" Click="Main_RulesButton_Click"/>
+            <Button x:Name="Main_RulesButton" Content="User Guide" HorizontalAlignment="Left" Margin="16,373,0,0" VerticalAlignment="Top" Click="Main_RulesButton_Click"/>
             <Button x:Name="Main_StatsSettingsButton" Content="Stats &amp; Settings" HorizontalAlignment="Left" Margin="101,373,0,0" VerticalAlignment="Top" Click="Main_StatsSettingsButton_Click"/>
             <Button x:Name="Main_PlayAgainButton" Content="Play Again" HorizontalAlignment="Left" Visibility="Collapsed" Margin="466,404,0,0" VerticalAlignment="Top" Click="Main_PlayAgainButton_Click"/>
 
